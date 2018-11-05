@@ -10,15 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace fRiEndcognition
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterForm : ContentPage
+	public partial class Camera : ContentPage
 	{
-		public RegisterForm ()
+		public Camera ()
 		{
 			InitializeComponent ();
 		}
-        public async void Register(object sender, EventArgs e)
+        public async void OnTapGestureRecognizerTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Camera());
+            await Navigation.PushAsync(new Menu());
         }
+
     }
 }

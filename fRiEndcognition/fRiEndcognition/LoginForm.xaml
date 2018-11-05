@@ -6,7 +6,7 @@
         <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
             <Entry Placeholder="Email"></Entry>
             <Entry Placeholder="Password" IsPassword="True"></Entry>
-            <Button Text="Login"></Button>
+            <Button Text="Login" Clicked="Login"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

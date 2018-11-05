@@ -16,5 +16,10 @@ namespace fRiEndcognition
 		{
 			InitializeComponent ();
 		}
-	}
+
+        public async void Login(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Camera());
+        }
+    }
 }

@@ -10,15 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace fRiEndcognition
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterForm : ContentPage
+	public partial class Menu : ContentPage
 	{
-		public RegisterForm ()
+		public Menu ()
 		{
 			InitializeComponent ();
 		}
-        public async void Register(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Camera());
-        }
-    }
+	}
 }
