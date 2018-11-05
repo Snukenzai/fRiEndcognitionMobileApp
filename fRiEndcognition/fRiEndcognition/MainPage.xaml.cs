@@ -13,5 +13,13 @@ namespace fRiEndcognition
         {
             InitializeComponent();
         }
+        public async void Register_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterForm());
+        }
+        public async void Login_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginForm());
+        }
     }
 }

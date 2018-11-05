@@ -775,20 +775,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elaka\\.nuget\\packages\\": {}
+    "C:\\Users\\eglyt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "projectUniqueName": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
       "projectName": "fRiEndcognition.Android",
-      "projectPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
-      "packagesPath": "C:\\Users\\elaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
+      "projectPath": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "packagesPath": "C:\\Users\\eglyt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\elaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eglyt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -801,8 +801,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj": {
-              "projectPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj"
+            "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj": {
+              "projectPath": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj"
             }
           }
         }

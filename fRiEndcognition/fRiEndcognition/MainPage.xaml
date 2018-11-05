@@ -4,11 +4,9 @@
              xmlns:local="clr-namespace:fRiEndcognition"
              x:Class="fRiEndcognition.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Button Text="Login" VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" Clicked="Login_Clicked"/>
+        <Button Text="Register" VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" Clicked="Register_Clicked"/>
     </StackLayout>
 
 </ContentPage>

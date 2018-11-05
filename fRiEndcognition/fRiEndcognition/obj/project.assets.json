@@ -339,23 +339,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elaka\\.nuget\\packages\\": {},
+    "C:\\Users\\eglyt\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj",
+      "projectUniqueName": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj",
       "projectName": "fRiEndcognition",
-      "projectPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj",
-      "packagesPath": "C:\\Users\\elaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\obj\\",
+      "projectPath": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj",
+      "packagesPath": "C:\\Users\\eglyt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eglyt\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\elaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eglyt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
