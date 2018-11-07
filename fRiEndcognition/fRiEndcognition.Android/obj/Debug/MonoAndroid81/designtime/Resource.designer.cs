@@ -2898,7 +2898,10 @@ namespace friendcognition.Droid
 			public const int IMG_0696 = 2130771970;
 			
 			// aapt resource value: 0x7F010003
-			public const int menu = 2130771971;
+			public const int logo_transparent = 2130771971;
+			
+			// aapt resource value: 0x7F010004
+			public const int menu = 2130771972;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -3099,8 +3102,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C001B
 			public const int buttonPanel = 2131492891;
 			
-			// aapt resource value: 0x7F020010
-			public const int cameraButton = 2130837520;
+			// aapt resource value: 0x7F020011
+			public const int cameraButton = 2130837521;
 			
 			// aapt resource value: 0x7F0C001C
 			public const int cancel_action = 2131492892;
@@ -3108,8 +3111,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C001D
 			public const int center = 2131492893;
 			
-			// aapt resource value: 0x7F020014
-			public const int changePicture = 2130837524;
+			// aapt resource value: 0x7F020015
+			public const int changePicture = 2130837525;
 			
 			// aapt resource value: 0x7F0C001E
 			public const int checkbox = 2131492894;
@@ -3174,8 +3177,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F020005
 			public const int FinalLogin = 2130837509;
 			
-			// aapt resource value: 0x7F020020
-			public const int FinalRegister = 2130837536;
+			// aapt resource value: 0x7F020021
+			public const int FinalRegister = 2130837537;
 			
 			// aapt resource value: 0x7F0C0032
 			public const int @fixed = 2131492914;
@@ -3225,8 +3228,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
 			
-			// aapt resource value: 0x7F020006
-			public const int LoginB = 2130837510;
+			// aapt resource value: 0x7F020007
+			public const int LoginB = 2130837511;
 			
 			// aapt resource value: 0x7F020003
 			public const int LoginEmail = 2130837507;
@@ -3234,8 +3237,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F020004
 			public const int LoginPassword = 2130837508;
 			
-			// aapt resource value: 0x7F020008
-			public const int logoutButton = 2130837512;
+			// aapt resource value: 0x7F020006
+			public const int Logo = 2130837510;
+			
+			// aapt resource value: 0x7F020009
+			public const int logoutButton = 2130837513;
 			
 			// aapt resource value: 0x7F0C0042
 			public const int masked = 2131492930;
@@ -3360,17 +3366,17 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0050
 			public const int pin = 2131492944;
 			
-			// aapt resource value: 0x7F020009
-			public const int profileButton = 2130837513;
-			
-			// aapt resource value: 0x7F020011
-			public const int ProfileImage = 2130837521;
+			// aapt resource value: 0x7F020010
+			public const int profileButton = 2130837520;
 			
 			// aapt resource value: 0x7F020012
-			public const int ProfileName = 2130837522;
+			public const int ProfileImage = 2130837522;
 			
 			// aapt resource value: 0x7F020013
-			public const int ProfileSurname = 2130837523;
+			public const int ProfileName = 2130837523;
+			
+			// aapt resource value: 0x7F020014
+			public const int ProfileSurname = 2130837524;
 			
 			// aapt resource value: 0x7F0C0051
 			public const int progress_circular = 2131492945;
@@ -3381,23 +3387,23 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0053
 			public const int radio = 2131492947;
 			
-			// aapt resource value: 0x7F020007
-			public const int RegisterB = 2130837511;
-			
-			// aapt resource value: 0x7F020017
-			public const int RegisterEmail = 2130837527;
-			
-			// aapt resource value: 0x7F020015
-			public const int RegisterName = 2130837525;
+			// aapt resource value: 0x7F020008
+			public const int RegisterB = 2130837512;
 			
 			// aapt resource value: 0x7F020018
-			public const int RegisterPassword = 2130837528;
-			
-			// aapt resource value: 0x7F020019
-			public const int RegisterPassword2 = 2130837529;
+			public const int RegisterEmail = 2130837528;
 			
 			// aapt resource value: 0x7F020016
-			public const int RegisterSurname = 2130837526;
+			public const int RegisterName = 2130837526;
+			
+			// aapt resource value: 0x7F020019
+			public const int RegisterPassword = 2130837529;
+			
+			// aapt resource value: 0x7F020020
+			public const int RegisterPassword2 = 2130837536;
+			
+			// aapt resource value: 0x7F020017
+			public const int RegisterSurname = 2130837527;
 			
 			// aapt resource value: 0x7F0C0054
 			public const int right = 2131492948;
@@ -3468,8 +3474,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C006A
 			public const int shortcut = 2131492970;
 			
-			// aapt resource value: 0x7F020021
-			public const int sliding_tabs = 2130837537;
+			// aapt resource value: 0x7F020022
+			public const int sliding_tabs = 2130837538;
 			
 			// aapt resource value: 0x7F0C006B
 			public const int smallLabel = 2131492971;
@@ -3546,8 +3552,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0083
 			public const int title_template = 2131492995;
 			
-			// aapt resource value: 0x7F020022
-			public const int toolbar = 2130837538;
+			// aapt resource value: 0x7F020023
+			public const int toolbar = 2130837539;
 			
 			// aapt resource value: 0x7F0C0084
 			public const int top = 2131492996;

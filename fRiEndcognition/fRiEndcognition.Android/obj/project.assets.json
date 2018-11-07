@@ -758,20 +758,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eglyt\\.nuget\\packages\\": {}
+    "C:\\Users\\Gytis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
-      "projectName": "friendcognition.Android",
-      "projectPath": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
-      "packagesPath": "C:\\Users\\eglyt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\obj\\",
+      "projectUniqueName": "C:\\Users\\Gytis\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "projectName": "fRiEndcognition.Android",
+      "projectPath": "C:\\Users\\Gytis\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "packagesPath": "C:\\Users\\Gytis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gytis\\Desktop\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\eglyt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gytis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

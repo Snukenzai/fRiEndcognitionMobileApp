@@ -18,24 +18,9 @@ namespace friendcognition.Droid
         {
 
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Main);
-
-            Button loginButton = FindViewById<Button>(Resource.Id.LoginB);
-            loginButton.Click += DoLogin;
-
-            Button registerButton = FindViewById<Button>(Resource.Id.RegisterB);
-            registerButton.Click += DoRegister;
-
-        }
-        private void DoLogin(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(Login));
+            Intent i = new Intent(this, typeof(Main));
             StartActivity(i);
         }
-        private void DoRegister(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(Register));
-            StartActivity(i);
-        }
+        
     }
 }

@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Profile.cs" />
@@ -130,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\IMG_0696.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logo_transparent.png" />
   </ItemGroup>
   <Import Project="..\friendcognition\friendcognition.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
