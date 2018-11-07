@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:minWidth="25px"
-	android:minHeight="25px">
-	<Button
-		android:text="Login"
-		android:layout_width="200.0dp"
-		android:layout_height="wrap_content"
-		android:id="@+id/LoginB"
-		android:layout_marginTop="180.0dp"
-		android:layout_gravity="center"
-		android:layout_centerInParent="true" />
-	<Button
-		android:text="Register"
-		android:layout_width="200.0dp"
-		android:layout_height="wrap_content"
-		android:id="@+id/RegisterB"
-		android:layout_gravity="center" />
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+    <friendcognition.Droid.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <friendcognition.Droid.GraphicOverlay
+            android:id="@+id/faceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </friendcognition.Droid.CameraSourcePreview>
 </LinearLayout>
