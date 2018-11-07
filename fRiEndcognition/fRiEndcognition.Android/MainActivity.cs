@@ -6,20 +6,36 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
-namespace fRiEndcognition.Droid
+namespace friendcognition.Droid
 {
-    [Activity(Label = "fRiEndcognition", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "MainActivity", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            SetContentView(Resource.Layout.Main);
+
+            Button loginButton = FindViewById<Button>(Resource.Id.LoginB);
+            loginButton.Click += DoLogin;
+
+            Button registerButton = FindViewById<Button>(Resource.Id.RegisterB);
+            registerButton.Click += DoRegister;
+
+        }
+        private void DoLogin(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(Login));
+            StartActivity(i);
+        }
+        private void DoRegister(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(Register));
+            StartActivity(i);
         }
     }
 }

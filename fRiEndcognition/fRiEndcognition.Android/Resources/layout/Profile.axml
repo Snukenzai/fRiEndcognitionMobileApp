@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<ImageView
+		android:src="@drawable/IMG_0696"
+		android:layout_marginTop="70.0dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true" 
+		android:scaleType="fitCenter"  
+	    android:maxWidth="250dp"  
+		android:maxHeight="250dp"  
+		android:id="@+id/ProfileImage" />
+	<TextView
+		android:text="Name"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_marginTop="20.0dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/ProfileName" />
+	<TextView
+		android:text="Surname"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/ProfileSurname" />
+	<Button
+		android:text="Upload profile picture"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_gravity="center"
+		android:id="@+id/changePicture" />
+
+</LinearLayout>

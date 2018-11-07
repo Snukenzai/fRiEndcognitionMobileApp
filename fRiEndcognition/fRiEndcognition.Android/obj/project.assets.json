@@ -340,19 +340,6 @@
           "build/Xamarin.Forms.props": {},
           "build/Xamarin.Forms.targets": {}
         }
-      },
-      "fRiEndcognition/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Xamarin.Forms": "3.3.0.912540"
-        },
-        "compile": {
-          "bin/placeholder/fRiEndcognition.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/fRiEndcognition.dll": {}
-        }
       }
     }
   },
@@ -641,11 +628,13 @@
         "lib/MonoAndroid10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/MonoAndroid10/FormsViewGroup.dll",
+        "lib/MonoAndroid10/FormsViewGroup.dll.mdb",
         "lib/MonoAndroid10/FormsViewGroup.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Core.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.xml",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll.mdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.dll",
@@ -756,11 +745,6 @@
         "xamarin.forms.3.3.0.912540.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
-    },
-    "fRiEndcognition/1.0.0": {
-      "type": "project",
-      "path": "../fRiEndcognition/fRiEndcognition.csproj",
-      "msbuildProject": "../fRiEndcognition/fRiEndcognition.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -770,25 +754,24 @@
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
-      "Xamarin.Forms >= 3.3.0.912540",
-      "fRiEndcognition >= 1.0.0"
+      "Xamarin.Forms >= 3.3.0.912540"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elaka\\.nuget\\packages\\": {}
+    "C:\\Users\\eglyt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
-      "projectName": "fRiEndcognition.Android",
-      "projectPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
-      "packagesPath": "C:\\Users\\elaka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
+      "projectUniqueName": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
+      "projectName": "friendcognition.Android",
+      "projectPath": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
+      "packagesPath": "C:\\Users\\eglyt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eglyt\\source\\friendcognition\\friendcognition\\friendcognition.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\elaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eglyt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -800,11 +783,7 @@
       },
       "frameworks": {
         "monoandroid81": {
-          "projectReferences": {
-            "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj": {
-              "projectPath": "C:\\Users\\elaka\\source\\repos\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },
