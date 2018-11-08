@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Login")]
+    [Activity(Label = "Login", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Login : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

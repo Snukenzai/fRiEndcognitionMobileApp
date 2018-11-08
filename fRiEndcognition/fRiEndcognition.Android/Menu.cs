@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Menu")]
+    [Activity(Label = "Menu", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Menu : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

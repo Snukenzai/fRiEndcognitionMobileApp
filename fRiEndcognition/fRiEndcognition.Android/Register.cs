@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Register")]
+    [Activity(Label = "Register", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Register : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

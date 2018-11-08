@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Camera")]
+    [Activity(Label = "Camera", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Camera : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
