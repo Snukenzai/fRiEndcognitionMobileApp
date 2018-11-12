@@ -18,9 +18,9 @@ namespace friendcognition.Droid
         {
 
             base.OnCreate(savedInstanceState);
+
             Intent i = new Intent(this, typeof(Main));
             StartActivity(i);
         }
-        
     }
 }
