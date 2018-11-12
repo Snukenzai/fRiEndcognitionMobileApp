@@ -1758,47 +1758,47 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int cast_libraries_material_featurehighlight_text_header_color = 1;
 			
-			// aapt resource value: 0x7F040005
-			public const int colorAccent = 2130968581;
+			// aapt resource value: 0x7F050005
+			public const int colorAccent = 2131034117;
 			
-			// aapt resource value: 0x7F040003
-			public const int colorPrimary = 2130968579;
+			// aapt resource value: 0x7F050003
+			public const int colorPrimary = 2131034115;
 			
-			// aapt resource value: 0x7F040004
-			public const int colorPrimaryDark = 2130968580;
+			// aapt resource value: 0x7F050004
+			public const int colorPrimaryDark = 2131034116;
 			
-			// aapt resource value: 0x7F040105
-			public const int common_google_signin_btn_text_dark = 2130968837;
+			// aapt resource value: 0x7F050105
+			public const int common_google_signin_btn_text_dark = 2131034373;
 			
-			// aapt resource value: 0x7F040108
-			public const int common_google_signin_btn_text_dark_default = 2130968840;
+			// aapt resource value: 0x7F050108
+			public const int common_google_signin_btn_text_dark_default = 2131034376;
 			
-			// aapt resource value: 0x7F040109
-			public const int common_google_signin_btn_text_dark_disabled = 2130968841;
+			// aapt resource value: 0x7F050109
+			public const int common_google_signin_btn_text_dark_disabled = 2131034377;
 			
-			// aapt resource value: 0x7F040110
-			public const int common_google_signin_btn_text_dark_focused = 2130968848;
+			// aapt resource value: 0x7F050110
+			public const int common_google_signin_btn_text_dark_focused = 2131034384;
 			
-			// aapt resource value: 0x7F040111
-			public const int common_google_signin_btn_text_dark_pressed = 2130968849;
+			// aapt resource value: 0x7F050111
+			public const int common_google_signin_btn_text_dark_pressed = 2131034385;
 			
-			// aapt resource value: 0x7F040106
-			public const int common_google_signin_btn_text_light = 2130968838;
+			// aapt resource value: 0x7F050106
+			public const int common_google_signin_btn_text_light = 2131034374;
 			
-			// aapt resource value: 0x7F040112
-			public const int common_google_signin_btn_text_light_default = 2130968850;
+			// aapt resource value: 0x7F050112
+			public const int common_google_signin_btn_text_light_default = 2131034386;
 			
-			// aapt resource value: 0x7F040113
-			public const int common_google_signin_btn_text_light_disabled = 2130968851;
+			// aapt resource value: 0x7F050113
+			public const int common_google_signin_btn_text_light_disabled = 2131034387;
 			
-			// aapt resource value: 0x7F040114
-			public const int common_google_signin_btn_text_light_focused = 2130968852;
+			// aapt resource value: 0x7F050114
+			public const int common_google_signin_btn_text_light_focused = 2131034388;
 			
-			// aapt resource value: 0x7F040115
-			public const int common_google_signin_btn_text_light_pressed = 2130968853;
+			// aapt resource value: 0x7F050115
+			public const int common_google_signin_btn_text_light_pressed = 2131034389;
 			
-			// aapt resource value: 0x7F040107
-			public const int common_google_signin_btn_tint = 2130968839;
+			// aapt resource value: 0x7F050107
+			public const int common_google_signin_btn_tint = 2131034375;
 			
 			// aapt resource value: 0x7F060027
 			public const int design_bottom_navigation_shadow_color = 2131099687;
@@ -1860,8 +1860,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F06003A
 			public const int highlighted_text_material_light = 2131099706;
 			
-			// aapt resource value: 0x7F040002
-			public const int launcher_background = 2130968578;
+			// aapt resource value: 0x7F050002
+			public const int launcher_background = 2131034114;
 			
 			// aapt resource value: 0x7F06003B
 			public const int material_blue_grey_800 = 2131099707;
@@ -3083,62 +3083,62 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int cast_skip_ad_label_border = 1;
 			
-			// aapt resource value: 0x7F080319
-			public const int common_full_open_on_phone = 2131231513;
+			// aapt resource value: 0x7F010322
+			public const int common_full_open_on_phone = 2130772770;
 			
-			// aapt resource value: 0x7F080305
-			public const int common_google_signin_btn_icon_dark = 2131231493;
+			// aapt resource value: 0x7F010308
+			public const int common_google_signin_btn_icon_dark = 2130772744;
 			
-			// aapt resource value: 0x7F080306
-			public const int common_google_signin_btn_icon_dark_focused = 2131231494;
+			// aapt resource value: 0x7F010309
+			public const int common_google_signin_btn_icon_dark_focused = 2130772745;
 			
-			// aapt resource value: 0x7F080307
-			public const int common_google_signin_btn_icon_dark_normal = 2131231495;
+			// aapt resource value: 0x7F010310
+			public const int common_google_signin_btn_icon_dark_normal = 2130772752;
 			
-			// aapt resource value: 0x7F080320
-			public const int common_google_signin_btn_icon_dark_normal_background = 2131231520;
+			// aapt resource value: 0x7F010323
+			public const int common_google_signin_btn_icon_dark_normal_background = 2130772771;
 			
-			// aapt resource value: 0x7F080308
-			public const int common_google_signin_btn_icon_disabled = 2131231496;
+			// aapt resource value: 0x7F010311
+			public const int common_google_signin_btn_icon_disabled = 2130772753;
 			
-			// aapt resource value: 0x7F080309
-			public const int common_google_signin_btn_icon_light = 2131231497;
+			// aapt resource value: 0x7F010312
+			public const int common_google_signin_btn_icon_light = 2130772754;
 			
-			// aapt resource value: 0x7F080310
-			public const int common_google_signin_btn_icon_light_focused = 2131231504;
+			// aapt resource value: 0x7F010313
+			public const int common_google_signin_btn_icon_light_focused = 2130772755;
 			
-			// aapt resource value: 0x7F080311
-			public const int common_google_signin_btn_icon_light_normal = 2131231505;
+			// aapt resource value: 0x7F010314
+			public const int common_google_signin_btn_icon_light_normal = 2130772756;
 			
-			// aapt resource value: 0x7F080321
-			public const int common_google_signin_btn_icon_light_normal_background = 2131231521;
+			// aapt resource value: 0x7F010324
+			public const int common_google_signin_btn_icon_light_normal_background = 2130772772;
 			
-			// aapt resource value: 0x7F080312
-			public const int common_google_signin_btn_text_dark = 2131231506;
+			// aapt resource value: 0x7F010315
+			public const int common_google_signin_btn_text_dark = 2130772757;
 			
-			// aapt resource value: 0x7F080313
-			public const int common_google_signin_btn_text_dark_focused = 2131231507;
+			// aapt resource value: 0x7F010316
+			public const int common_google_signin_btn_text_dark_focused = 2130772758;
 			
-			// aapt resource value: 0x7F080314
-			public const int common_google_signin_btn_text_dark_normal = 2131231508;
+			// aapt resource value: 0x7F010317
+			public const int common_google_signin_btn_text_dark_normal = 2130772759;
 			
-			// aapt resource value: 0x7F080322
-			public const int common_google_signin_btn_text_dark_normal_background = 2131231522;
+			// aapt resource value: 0x7F010325
+			public const int common_google_signin_btn_text_dark_normal_background = 2130772773;
 			
-			// aapt resource value: 0x7F080315
-			public const int common_google_signin_btn_text_disabled = 2131231509;
+			// aapt resource value: 0x7F010318
+			public const int common_google_signin_btn_text_disabled = 2130772760;
 			
-			// aapt resource value: 0x7F080316
-			public const int common_google_signin_btn_text_light = 2131231510;
+			// aapt resource value: 0x7F010319
+			public const int common_google_signin_btn_text_light = 2130772761;
 			
-			// aapt resource value: 0x7F080317
-			public const int common_google_signin_btn_text_light_focused = 2131231511;
+			// aapt resource value: 0x7F010320
+			public const int common_google_signin_btn_text_light_focused = 2130772768;
 			
-			// aapt resource value: 0x7F080318
-			public const int common_google_signin_btn_text_light_normal = 2131231512;
+			// aapt resource value: 0x7F010321
+			public const int common_google_signin_btn_text_light_normal = 2130772769;
 			
-			// aapt resource value: 0x7F080323
-			public const int common_google_signin_btn_text_light_normal_background = 2131231523;
+			// aapt resource value: 0x7F010326
+			public const int common_google_signin_btn_text_light_normal_background = 2130772774;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -3158,11 +3158,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F080324
-			public const int googleg_disabled_color_18 = 2131231524;
+			// aapt resource value: 0x7F010327
+			public const int googleg_disabled_color_18 = 2130772775;
 			
-			// aapt resource value: 0x7F080325
-			public const int googleg_standard_color_18 = 2131231525;
+			// aapt resource value: 0x7F010328
+			public const int googleg_standard_color_18 = 2130772776;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -3707,6 +3707,15 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
+			// aapt resource value: 0x7F010002
+			public const int IMG_0696 = 2130771970;
+			
+			// aapt resource value: 0x7F010003
+			public const int logo_transparent = 2130771971;
+			
+			// aapt resource value: 0x7F010004
+			public const int menu = 2130771972;
+			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
 			
@@ -4023,11 +4032,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0015
 			public const int add = 2131492885;
 			
-			// aapt resource value: 0x7F010179
-			public const int adjust_height = 2130772345;
+			// aapt resource value: 0x7F020198
+			public const int adjust_height = 2130837912;
 			
-			// aapt resource value: 0x7F010178
-			public const int adjust_width = 2130772344;
+			// aapt resource value: 0x7F020197
+			public const int adjust_width = 2130837911;
 			
 			// aapt resource value: 0x1
 			public const int ad_container = 1;
@@ -4056,8 +4065,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int android_pay_light_with_border = 1;
 			
-			// aapt resource value: 0x7F010177
-			public const int app_name = 2130772343;
+			// aapt resource value: 0x7F020196
+			public const int app_name = 2130837910;
 			
 			// aapt resource value: 0x7F0C0006
 			public const int async = 2131492870;
@@ -4119,6 +4128,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int buy_with_google = 1;
 			
+			// aapt resource value: 0x7F020013
+			public const int cameraButton = 2130837523;
+			
 			// aapt resource value: 0x7F0C001C
 			public const int cancel_action = 2131492892;
 			
@@ -4164,6 +4176,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C001D
 			public const int center = 2131492893;
 			
+			// aapt resource value: 0x7F020017
+			public const int changePicture = 2130837527;
+			
 			// aapt resource value: 0x7F0C001E
 			public const int checkbox = 2131492894;
 			
@@ -4203,8 +4218,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0024
 			public const int customPanel = 2131492900;
 			
-			// aapt resource value: 0x7F010183
-			public const int dark = 2130772355;
+			// aapt resource value: 0x7F020202
+			public const int dark = 2130838018;
 			
 			// aapt resource value: 0x1
 			public const int date = 1;
@@ -4266,11 +4281,17 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C002F
 			public const int expand_activities_button = 2131492911;
 			
-			// aapt resource value: 0x7F010004
-			public const int faceOverlay = 2130771972;
+			// aapt resource value: 0x7F020004
+			public const int faceOverlay = 2130837508;
 			
 			// aapt resource value: 0x7F0C0031
 			public const int fill = 2131492913;
+			
+			// aapt resource value: 0x7F020007
+			public const int FinalLogin = 2130837511;
+			
+			// aapt resource value: 0x7F020023
+			public const int FinalRegister = 2130837539;
 			
 			// aapt resource value: 0x7F0C0032
 			public const int @fixed = 2131492914;
@@ -4314,8 +4335,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C000B
 			public const int icon_group = 2131492875;
 			
-			// aapt resource value: 0x7F010182
-			public const int icon_only = 2130772354;
+			// aapt resource value: 0x7F020201
+			public const int icon_only = 2130838017;
 			
 			// aapt resource value: 0x1
 			public const int icon_uri = 1;
@@ -4377,8 +4398,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int license_list = 1;
 			
-			// aapt resource value: 0x7F010184
-			public const int light = 2130772356;
+			// aapt resource value: 0x7F020203
+			public const int light = 2130838019;
 			
 			// aapt resource value: 0x7F0C000E
 			public const int line1 = 2131492878;
@@ -4401,6 +4422,21 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int loading_indicator = 1;
 			
+			// aapt resource value: 0x7F020009
+			public const int LoginB = 2130837513;
+			
+			// aapt resource value: 0x7F020005
+			public const int LoginEmail = 2130837509;
+			
+			// aapt resource value: 0x7F020006
+			public const int LoginPassword = 2130837510;
+			
+			// aapt resource value: 0x7F020008
+			public const int Logo = 2130837512;
+			
+			// aapt resource value: 0x7F020011
+			public const int logoutButton = 2130837521;
+			
 			// aapt resource value: 0x1
 			public const int logo_only = 1;
 			
@@ -4415,6 +4451,9 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7F0C0043
 			public const int media_actions = 2131492931;
+			
+			// aapt resource value: 0x7F020002
+			public const int Menu = 2130837506;
 			
 			// aapt resource value: 0x7F0C0044
 			public const int message = 2131492932;
@@ -4569,11 +4608,23 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int plain = 1;
 			
-			// aapt resource value: 0x7F010003
-			public const int preview = 2130771971;
+			// aapt resource value: 0x7F020003
+			public const int preview = 2130837507;
 			
 			// aapt resource value: 0x1
 			public const int production = 1;
+			
+			// aapt resource value: 0x7F020012
+			public const int profileButton = 2130837522;
+			
+			// aapt resource value: 0x7F020014
+			public const int ProfileImage = 2130837524;
+			
+			// aapt resource value: 0x7F020015
+			public const int ProfileName = 2130837525;
+			
+			// aapt resource value: 0x7F020016
+			public const int ProfileSurname = 2130837526;
 			
 			// aapt resource value: 0x1
 			public const int progressBar = 1;
@@ -4586,6 +4637,24 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7F0C0053
 			public const int radio = 2131492947;
+			
+			// aapt resource value: 0x7F020010
+			public const int RegisterB = 2130837520;
+			
+			// aapt resource value: 0x7F020020
+			public const int RegisterEmail = 2130837536;
+			
+			// aapt resource value: 0x7F020018
+			public const int RegisterName = 2130837528;
+			
+			// aapt resource value: 0x7F020021
+			public const int RegisterPassword = 2130837537;
+			
+			// aapt resource value: 0x7F020022
+			public const int RegisterPassword2 = 2130837538;
+			
+			// aapt resource value: 0x7F020019
+			public const int RegisterSurname = 2130837529;
 			
 			// aapt resource value: 0x1
 			public const int rfc822 = 1;
@@ -4677,8 +4746,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int slide = 1;
 			
-			// aapt resource value: 0x7F010005
-			public const int sliding_tabs = 2130771973;
+			// aapt resource value: 0x7F020024
+			public const int sliding_tabs = 2130837540;
 			
 			// aapt resource value: 0x7F0C006B
 			public const int smallLabel = 2131492971;
@@ -4704,8 +4773,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0072
 			public const int src_over = 2131492978;
 			
-			// aapt resource value: 0x7F010180
-			public const int standard = 2130772352;
+			// aapt resource value: 0x7F020199
+			public const int standard = 2130837913;
 			
 			// aapt resource value: 0x7F0C0073
 			public const int start = 2131492979;
@@ -4794,14 +4863,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int title_view = 1;
 			
-			// aapt resource value: 0x7F010006
-			public const int toolbar = 2130771974;
+			// aapt resource value: 0x7F020025
+			public const int toolbar = 2130837541;
 			
 			// aapt resource value: 0x7F0C0084
 			public const int top = 2131492996;
-			
-			// aapt resource value: 0x7F010002
-			public const int topLayout = 2130771970;
 			
 			// aapt resource value: 0x7F0C0085
 			public const int topPanel = 2131492997;
@@ -4842,8 +4908,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C007D
 			public const int volume_item_container = 2131492989;
 			
-			// aapt resource value: 0x7F010181
-			public const int wide = 2130772353;
+			// aapt resource value: 0x7F020200
+			public const int wide = 2130838016;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;
@@ -5016,6 +5082,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0F001A
 			public const int abc_select_dialog_material = 2131689498;
 			
+			// aapt resource value: 0x7F030002
+			public const int Camera = 2130903042;
+			
 			// aapt resource value: 0x1
 			public const int cast_expanded_controller_activity = 1;
 			
@@ -5088,8 +5157,14 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int license_menu_activity_no_licenses = 1;
 			
-			// aapt resource value: 0x7F020002
-			public const int Main = 2130837506;
+			// aapt resource value: 0x7F030003
+			public const int Login = 2130903043;
+			
+			// aapt resource value: 0x7F030004
+			public const int Main = 2130903044;
+			
+			// aapt resource value: 0x7F030005
+			public const int Menu = 2130903045;
 			
 			// aapt resource value: 0x7F0F001B
 			public const int mr_chooser_dialog = 2131689499;
@@ -5166,6 +5241,12 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int place_autocomplete_progress = 1;
 			
+			// aapt resource value: 0x7F030006
+			public const int Profile = 2130903046;
+			
+			// aapt resource value: 0x7F030007
+			public const int Register = 2130903047;
+			
 			// aapt resource value: 0x7F0F0038
 			public const int select_dialog_item_material = 2131689528;
 			
@@ -5178,11 +5259,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0F003B
 			public const int support_simple_spinner_dropdown_item = 2131689531;
 			
-			// aapt resource value: 0x7F020003
-			public const int Tabbar = 2130837507;
+			// aapt resource value: 0x7F030008
+			public const int Tabbar = 2130903048;
 			
-			// aapt resource value: 0x7F020004
-			public const int Toolbar = 2130837508;
+			// aapt resource value: 0x7F030009
+			public const int Toolbar = 2130903049;
 			
 			// aapt resource value: 0x7F0F003C
 			public const int tooltip = 2131689532;
@@ -5203,14 +5284,14 @@ namespace friendcognition.Droid
 		public partial class Mipmap
 		{
 			
-			// aapt resource value: 0x7F030002
-			public const int icon = 2130903042;
+			// aapt resource value: 0x7F040002
+			public const int icon = 2130968578;
 			
-			// aapt resource value: 0x7F030003
-			public const int icon_round = 2130903043;
+			// aapt resource value: 0x7F040003
+			public const int icon_round = 2130968579;
 			
-			// aapt resource value: 0x7F030004
-			public const int launcher_foreground = 2130903044;
+			// aapt resource value: 0x7F040004
+			public const int launcher_foreground = 2130968580;
 			
 			static Mipmap()
 			{
@@ -5314,9 +5395,6 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7F15001E
 			public const int appbar_scrolling_view_behavior = 2132082718;
-			
-			// aapt resource value: 0x7F050003
-			public const int ApplicationName = 2131034115;
 			
 			// aapt resource value: 0x7F15001F
 			public const int bottom_sheet_behavior = 2132082719;
@@ -5444,56 +5522,56 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F150020
 			public const int character_counter_pattern = 2132082720;
 			
-			// aapt resource value: 0x7F050068
-			public const int common_google_play_services_enable_button = 2131034216;
+			// aapt resource value: 0x7F080062
+			public const int common_google_play_services_enable_button = 2131230818;
 			
-			// aapt resource value: 0x7F050069
-			public const int common_google_play_services_enable_text = 2131034217;
+			// aapt resource value: 0x7F080063
+			public const int common_google_play_services_enable_text = 2131230819;
 			
-			// aapt resource value: 0x7F050070
-			public const int common_google_play_services_enable_title = 2131034224;
+			// aapt resource value: 0x7F080064
+			public const int common_google_play_services_enable_title = 2131230820;
 			
-			// aapt resource value: 0x7F050071
-			public const int common_google_play_services_install_button = 2131034225;
+			// aapt resource value: 0x7F080065
+			public const int common_google_play_services_install_button = 2131230821;
 			
-			// aapt resource value: 0x7F050072
-			public const int common_google_play_services_install_text = 2131034226;
+			// aapt resource value: 0x7F080066
+			public const int common_google_play_services_install_text = 2131230822;
 			
-			// aapt resource value: 0x7F050073
-			public const int common_google_play_services_install_title = 2131034227;
+			// aapt resource value: 0x7F080067
+			public const int common_google_play_services_install_title = 2131230823;
 			
-			// aapt resource value: 0x7F050074
-			public const int common_google_play_services_notification_ticker = 2131034228;
+			// aapt resource value: 0x7F080068
+			public const int common_google_play_services_notification_ticker = 2131230824;
 			
 			// aapt resource value: 0x1
 			public const int common_google_play_services_unknown_issue = 1;
 			
-			// aapt resource value: 0x7F050075
-			public const int common_google_play_services_unsupported_text = 2131034229;
+			// aapt resource value: 0x7F080069
+			public const int common_google_play_services_unsupported_text = 2131230825;
 			
-			// aapt resource value: 0x7F050076
-			public const int common_google_play_services_update_button = 2131034230;
+			// aapt resource value: 0x7F080070
+			public const int common_google_play_services_update_button = 2131230832;
 			
-			// aapt resource value: 0x7F050077
-			public const int common_google_play_services_update_text = 2131034231;
+			// aapt resource value: 0x7F080071
+			public const int common_google_play_services_update_text = 2131230833;
 			
-			// aapt resource value: 0x7F050078
-			public const int common_google_play_services_update_title = 2131034232;
+			// aapt resource value: 0x7F080072
+			public const int common_google_play_services_update_title = 2131230834;
 			
-			// aapt resource value: 0x7F050079
-			public const int common_google_play_services_updating_text = 2131034233;
+			// aapt resource value: 0x7F080073
+			public const int common_google_play_services_updating_text = 2131230835;
 			
-			// aapt resource value: 0x7F050080
-			public const int common_google_play_services_wear_update_text = 2131034240;
+			// aapt resource value: 0x7F080074
+			public const int common_google_play_services_wear_update_text = 2131230836;
 			
-			// aapt resource value: 0x7F050081
-			public const int common_open_on_phone = 2131034241;
+			// aapt resource value: 0x7F080075
+			public const int common_open_on_phone = 2131230837;
 			
-			// aapt resource value: 0x7F050082
-			public const int common_signin_button_text = 2131034242;
+			// aapt resource value: 0x7F080076
+			public const int common_signin_button_text = 2131230838;
 			
-			// aapt resource value: 0x7F050083
-			public const int common_signin_button_text_long = 2131034243;
+			// aapt resource value: 0x7F080077
+			public const int common_signin_button_text_long = 2131230839;
 			
 			// aapt resource value: 0x1
 			public const int fcm_fallback_notification_channel_label = 1;
@@ -5501,14 +5579,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int gcm_fallback_notification_channel_label = 1;
 			
-			// aapt resource value: 0x7F050002
-			public const int Hello = 2131034114;
-			
 			// aapt resource value: 0x1
 			public const int license_content_error = 1;
-			
-			// aapt resource value: 0x7F050007
-			public const int low_storage_error = 2131034119;
 			
 			// aapt resource value: 0x7F15001E
 			public const int mr_button_content_description = 2132082718;
@@ -5573,14 +5645,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F150032
 			public const int mr_user_route_category_name = 2132082738;
 			
-			// aapt resource value: 0x7F050006
-			public const int no_camera_permission = 2131034118;
-			
 			// aapt resource value: 0x1
 			public const int no_licenses_available = 1;
-			
-			// aapt resource value: 0x7F050004
-			public const int ok = 2131034116;
 			
 			// aapt resource value: 0x1
 			public const int oss_license_title = 1;
@@ -5599,9 +5665,6 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7F150025
 			public const int path_password_strike_through = 2132082725;
-			
-			// aapt resource value: 0x7F050005
-			public const int permission_camera_rationale = 2131034117;
 			
 			// aapt resource value: 0x1
 			public const int place_autocomplete_clear_button = 1;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace friendcognition
+namespace fRiEndcognition
 {
     public partial class MainPage : ContentPage
     {

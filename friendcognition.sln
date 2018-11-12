@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fRiEndcognition.Android", "fRiEndcognition\fRiEndcognition.Android\fRiEndcognition.Android.csproj", "{836D1F88-50DD-4163-A38A-1390F6901A7B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "fRiEndcognition", "fRiEndcognition\fRiEndcognition\fRiEndcognition.shproj", "{D301C3B2-3E5A-405F-83B9-DB7E7C057C03}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		fRiEndcognition\fRiEndcognition\fRiEndcognition.projitems*{836d1f88-50dd-4163-a38a-1390f6901a7b}*SharedItemsImports = 4
+		fRiEndcognition\fRiEndcognition\fRiEndcognition.projitems*{d301c3b2-3e5a-405f-83b9-db7e7c057c03}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836D1F88-50DD-4163-A38A-1390F6901A7B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DAD70AA-2497-4D52-BF03-717A538079CC}
+	EndGlobalSection
+EndGlobal
