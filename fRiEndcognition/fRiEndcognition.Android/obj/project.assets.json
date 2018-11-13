@@ -340,6 +340,19 @@
           "build/Xamarin.Forms.props": {},
           "build/Xamarin.Forms.targets": {}
         }
+      },
+      "friendcognition/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Xamarin.Forms": "3.3.0.912540"
+        },
+        "compile": {
+          "bin/placeholder/friendcognition.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/friendcognition.dll": {}
+        }
       }
     }
   },
@@ -745,6 +758,11 @@
         "xamarin.forms.3.3.0.912540.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "friendcognition/1.0.0": {
+      "type": "project",
+      "path": "../friendcognition/friendcognition.csproj",
+      "msbuildProject": "../friendcognition/friendcognition.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -754,24 +772,25 @@
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
-      "Xamarin.Forms >= 3.3.0.912540"
+      "Xamarin.Forms >= 3.3.0.912540",
+      "friendcognition >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eglyt\\.nuget\\packages\\": {}
+    "C:\\Users\\almyk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eglyt\\source\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
-      "projectName": "fRiEndcognition.Android",
-      "projectPath": "C:\\Users\\eglyt\\source\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
-      "packagesPath": "C:\\Users\\eglyt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eglyt\\source\\fRiEndcognition\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
+      "projectUniqueName": "C:\\friendcognition\\fRiEndcognitionMobileApp\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
+      "projectName": "friendcognition.Android",
+      "projectPath": "C:\\friendcognition\\fRiEndcognitionMobileApp\\friendcognition\\friendcognition.Android\\friendcognition.Android.csproj",
+      "packagesPath": "C:\\Users\\almyk\\.nuget\\packages\\",
+      "outputPath": "C:\\friendcognition\\fRiEndcognitionMobileApp\\friendcognition\\friendcognition.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\eglyt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\almyk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -783,7 +802,11 @@
       },
       "frameworks": {
         "monoandroid81": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\friendcognition\\fRiEndcognitionMobileApp\\friendcognition\\friendcognition\\friendcognition.csproj": {
+              "projectPath": "C:\\friendcognition\\fRiEndcognitionMobileApp\\friendcognition\\friendcognition\\friendcognition.csproj"
+            }
+          }
         }
       }
     },
