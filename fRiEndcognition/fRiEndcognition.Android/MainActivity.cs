@@ -19,6 +19,8 @@ namespace friendcognition.Droid
         private TextView textView;
 
         private CameraSource cameraSource;
+        private const int RequestCameraPermissionID = 1001;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
@@ -26,6 +28,11 @@ namespace friendcognition.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.Main);
             //LoadApplication(new App());
+
+            cameraView = FindViewByID<SurfaceView>(Resource.ID.surface_view);
+            textView = FindViewByID<TextView>(Resource.ID.text_view);
+
+           
         }
     }
 }
