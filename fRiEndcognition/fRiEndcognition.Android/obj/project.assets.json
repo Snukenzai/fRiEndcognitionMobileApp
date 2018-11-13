@@ -1217,6 +1217,7 @@
       "Xamarin.Android.Support.v7.CardView >= 27.0.2.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 27.0.2.1",
       "Xamarin.Forms >= 3.3.0.912540",
+      "Xamarin.GooglePlayServices.Basement >= 60.1142.1",
       "Xamarin.GooglePlayServices.Vision >= 60.1142.1",
       "friendcognition >= 1.0.0"
     ]
@@ -1285,6 +1286,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.3.0.912540, )"
+          },
+          "Xamarin.GooglePlayServices.Basement": {
+            "target": "Package",
+            "version": "[60.1142.1, )"
           },
           "Xamarin.GooglePlayServices.Vision": {
             "target": "Package",
