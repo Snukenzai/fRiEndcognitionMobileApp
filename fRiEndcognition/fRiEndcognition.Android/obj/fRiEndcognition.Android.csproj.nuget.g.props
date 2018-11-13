@@ -13,6 +13,8 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)xamarin.build.download\0.4.9\build\Xamarin.Build.Download.props" Condition="Exists('$(NuGetPackageRoot)xamarin.build.download\0.4.9\build\Xamarin.Build.Download.props')" />
     <Import Project="$(NuGetPackageRoot)xamarin.forms\3.3.0.912540\build\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.3.0.912540\build\Xamarin.Forms.props')" />
+    <Import Project="$(NuGetPackageRoot)crosslight.xamarin.build.download\25.3.1\build\Crosslight.Xamarin.Build.Download.props" Condition="Exists('$(NuGetPackageRoot)crosslight.xamarin.build.download\25.3.1\build\Crosslight.Xamarin.Build.Download.props')" />
   </ImportGroup>
 </Project>

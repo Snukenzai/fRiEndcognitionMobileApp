@@ -3405,8 +3405,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C006A
 			public const int shortcut = 2131492970;
 			
-			// aapt resource value: 0x7F010002
-			public const int sliding_tabs = 2130771970;
+			// aapt resource value: 0x7F010004
+			public const int sliding_tabs = 2130771972;
 			
 			// aapt resource value: 0x7F0C006B
 			public const int smallLabel = 2131492971;
@@ -3444,6 +3444,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0076
 			public const int submit_area = 2131492982;
 			
+			// aapt resource value: 0x7F010002
+			public const int surface_view = 2130771970;
+			
 			// aapt resource value: 0x7F0C0077
 			public const int tabMode = 2131492983;
 			
@@ -3471,6 +3474,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C007D
 			public const int text_input_password_toggle = 2131492989;
 			
+			// aapt resource value: 0x7F010003
+			public const int text_view = 2130771971;
+			
 			// aapt resource value: 0x7F0C0019
 			public const int time = 2131492889;
 			
@@ -3483,8 +3489,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0083
 			public const int title_template = 2131492995;
 			
-			// aapt resource value: 0x7F010003
-			public const int toolbar = 2130771971;
+			// aapt resource value: 0x7F010005
+			public const int toolbar = 2130771973;
 			
 			// aapt resource value: 0x7F0C0084
 			public const int top = 2131492996;
@@ -3732,6 +3738,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0F0028
 			public const int design_text_input_password_icon = 2131689512;
 			
+			// aapt resource value: 0x7F020002
+			public const int Main = 2130837506;
+			
 			// aapt resource value: 0x7F0F001B
 			public const int mr_chooser_dialog = 2131689499;
 			
@@ -3807,11 +3816,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0F003B
 			public const int support_simple_spinner_dropdown_item = 2131689531;
 			
-			// aapt resource value: 0x7F020002
-			public const int Tabbar = 2130837506;
-			
 			// aapt resource value: 0x7F020003
-			public const int Toolbar = 2130837507;
+			public const int Tabbar = 2130837507;
+			
+			// aapt resource value: 0x7F020004
+			public const int Toolbar = 2130837508;
 			
 			// aapt resource value: 0x7F0F003C
 			public const int tooltip = 2131689532;
