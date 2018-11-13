@@ -3183,8 +3183,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int META = 2131492925;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int Menu = 2131493010;
+			// aapt resource value: 0x7f0c0094
+			public const int Menu = 2131493012;
 			
 			// aapt resource value: 0x7f0c00d9
 			public const int ProfileImage = 2131493081;
@@ -3414,8 +3414,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0079
 			public const int expanded_menu = 2131492985;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int faceOverlay = 2131493012;
+			// aapt resource value: 0x7f0c0093
+			public const int faceOverlay = 2131493011;
 			
 			// aapt resource value: 0x7f0c0057
 			public const int fill = 2131492951;
@@ -3615,8 +3615,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0054
 			public const int pin = 2131492948;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int preview = 2131493011;
+			// aapt resource value: 0x7f0c0092
+			public const int preview = 2131493010;
 			
 			// aapt resource value: 0x7f0c00aa
 			public const int profileButton = 2131493034;

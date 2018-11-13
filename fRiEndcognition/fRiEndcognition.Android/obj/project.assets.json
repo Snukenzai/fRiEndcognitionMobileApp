@@ -933,11 +933,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coding\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "projectUniqueName": "C:\\Coding\\Projects\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
       "projectName": "fRiEndcognition.Android",
-      "projectPath": "C:\\Coding\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
+      "projectPath": "C:\\Coding\\Projects\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\fRiEndcognition.Android.csproj",
       "packagesPath": "C:\\Users\\gravus\\.nuget\\packages\\",
-      "outputPath": "C:\\Coding\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
+      "outputPath": "C:\\Coding\\Projects\\fRiEndcognitionMobileApp\\fRiEndcognition\\fRiEndcognition.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

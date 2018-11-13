@@ -4281,8 +4281,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C002F
 			public const int expand_activities_button = 2131492911;
 			
-			// aapt resource value: 0x7F020004
-			public const int faceOverlay = 2130837508;
+			// aapt resource value: 0x7F020003
+			public const int faceOverlay = 2130837507;
 			
 			// aapt resource value: 0x7F0C0031
 			public const int fill = 2131492913;
@@ -4452,8 +4452,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7F0C0043
 			public const int media_actions = 2131492931;
 			
-			// aapt resource value: 0x7F020002
-			public const int Menu = 2130837506;
+			// aapt resource value: 0x7F020004
+			public const int Menu = 2130837508;
 			
 			// aapt resource value: 0x7F0C0044
 			public const int message = 2131492932;
@@ -4608,8 +4608,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x1
 			public const int plain = 1;
 			
-			// aapt resource value: 0x7F020003
-			public const int preview = 2130837507;
+			// aapt resource value: 0x7F020002
+			public const int preview = 2130837506;
 			
 			// aapt resource value: 0x1
 			public const int production = 1;

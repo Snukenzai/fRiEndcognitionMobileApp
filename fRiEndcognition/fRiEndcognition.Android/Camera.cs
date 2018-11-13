@@ -13,11 +13,13 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
+using static Android.Gms.Vision.MultiProcessor;
 
 namespace friendcognition.Droid
 {
     [Activity(Label = "Camera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class Camera : Activity
+    public class Camera : Activity, IFactory
     {
 
         private static readonly string TAG = "friendcognition";
@@ -73,7 +75,7 @@ namespace friendcognition.Droid
 
             FaceDetector detector = new FaceDetector.Builder(this).Build();
 
-            // detector.SetProcessor(new MultiProcessor.Builder(this).Build());
+            detector.SetProcessor(new MultiProcessor.Builder(this).Build());
 
             if (!detector.IsOperational)
             {
@@ -117,6 +119,11 @@ namespace friendcognition.Droid
                     cameraSource = null;
                 }
             }
+        }
+
+        public Tracker Create(Java.Lang.Object item)
+        {
+            return new friendcognition.Droid.FaceDetection(graphicOverlay, cameraSource);
         }
     }
 }

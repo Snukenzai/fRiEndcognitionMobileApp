@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="CameraSourcePreview.cs" />
+    <Compile Include="FaceDetection.cs" />
+    <Compile Include="FaceGraphic.cs" />
     <Compile Include="GraphicOverlay.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Main.cs" />
