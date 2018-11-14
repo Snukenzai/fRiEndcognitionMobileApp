@@ -35,18 +35,37 @@ namespace friendcognition.Droid
             SetContentView(Resource.Layout.Camera);
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
+            ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
             menu.Click += OpenMenu;
+            changeCamera.Click += ChangeCameraFacing;
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
 
-            CreateCameraSource();
+            CreateCameraSource(CameraFacing.Back);
 
         }
         private void OpenMenu(object sender, EventArgs e)
         {
             Intent i = new Intent(this, typeof(Menu));
             StartActivity(i);
+        }
+
+        private void ChangeCameraFacing(object sender, EventArgs e)
+        {
+            if (cameraSource != null)
+            {
+                cameraSource.Release();
+                if (cameraSource.CameraFacing == CameraFacing.Back)
+                {
+                    CreateCameraSource(CameraFacing.Front);
+                }
+                else
+                {
+                    CreateCameraSource(CameraFacing.Back);
+                }
+                StartCameraSource();
+            }
         }
 
         protected override void OnResume()
@@ -70,7 +89,7 @@ namespace friendcognition.Droid
             }
         }
 
-        private void CreateCameraSource()
+        private void CreateCameraSource(CameraFacing cameraFacing)
         {
 
             FaceDetector detector = new FaceDetector.Builder(this).Build();
@@ -84,7 +103,7 @@ namespace friendcognition.Droid
 
             cameraSource = new CameraSource.Builder(this, detector)
                 .SetRequestedPreviewSize(640, 480)
-                .SetFacing(CameraFacing.Back)
+                .SetFacing(cameraFacing)
                 .SetAutoFocusEnabled(true)
                 .SetRequestedFps(30.0f)
                 .Build();
