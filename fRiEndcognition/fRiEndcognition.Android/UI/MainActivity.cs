@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android;
+
 using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Android.OS;
+using Android.Content;
+using Android.Support.V4.App;
+using Android;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Main", Theme = "@style/Theme.AppCompat.NoActionBar")]
-    public class Main : Activity
+    [Activity(Label = "MainActivity", Icon = "@mipmap/icon", Theme = "@style/Theme.AppCompat.NoActionBar", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-
         private static readonly int camera_code = 10;
 
         protected override void OnCreate(Bundle savedInstanceState)
