@@ -33,9 +33,21 @@ namespace friendcognition.Droid
             {
                 ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
             }
-            if(ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Granted)
+            else
             {
                 StartActivity(i);
+            }
+        }
+
+        public void onRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            if (requestCode == 10)
+            {
+                if (grantResults[0] == Permission.Granted)
+                {
+                    Intent i = new Intent(this, typeof(Camera));
+                    StartActivity(i);
+                }
             }
         }
     }
