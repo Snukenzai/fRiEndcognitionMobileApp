@@ -19,7 +19,6 @@ namespace friendcognition.Droid
         private GraphicOverlay mOverlay;
         private FaceGraphic mFaceGraphic;
         private CameraSource mCameraSource = null;
-        private bool isProcessing = false;
 
         public FaceDetection(GraphicOverlay overlay, CameraSource cameraSource = null)
         {

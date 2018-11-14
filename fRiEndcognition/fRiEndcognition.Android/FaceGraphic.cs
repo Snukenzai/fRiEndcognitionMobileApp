@@ -16,22 +16,8 @@ namespace friendcognition.Droid
 {
     public class FaceGraphic : Graphic
     {
-        private static readonly float FACE_POSITION_RADIUS = 10.0f;
         private static readonly float ID_TEXT_SIZE = 40.0f;
-        private static readonly float ID_Y_OFFSET = 50.0f;
-        private static readonly float ID_X_OFFSET = -50.0f;
         private static readonly float BOX_STROKE_WIDTH = 5.0f;
-
-        private static Color[] COLOR_CHOICES = {
-        Color.Blue,
-        Color.Cyan,
-        Color.Green,
-        Color.Magenta,
-        Color.Red,
-        Color.White,
-        Color.Yellow
-    };
-        private static int mCurrentColorIndex = 0;
 
         private Paint mFacePositionPaint;
         private Paint mIdPaint;
@@ -39,12 +25,10 @@ namespace friendcognition.Droid
 
         private volatile Face mFace;
         private int mFaceId;
-        private float mFaceHappiness;
 
         public FaceGraphic(GraphicOverlay overlay) : base(overlay)
         {
-            mCurrentColorIndex = (mCurrentColorIndex + 1) % COLOR_CHOICES.Length;
-            var selectedColor = COLOR_CHOICES[mCurrentColorIndex];
+            var selectedColor = Color.Blue;
 
             mFacePositionPaint = new Paint()
             {

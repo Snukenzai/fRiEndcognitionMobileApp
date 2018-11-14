@@ -82,17 +82,12 @@ namespace friendcognition.Droid
                 Log.Warn(TAG, "Face detector isn't configured yet");
             }
 
-            //var metrics = DeviceDisplay.ScreenMetrics;
-            //int width = (int)metrics.Width;
-            //int height = (int)metrics.Height;
-
             cameraSource = new CameraSource.Builder(this, detector)
                 .SetRequestedPreviewSize(640, 480)
                 .SetFacing(CameraFacing.Back)
+                .SetAutoFocusEnabled(true)
                 .SetRequestedFps(30.0f)
                 .Build();
-
-
         }
 
         private void StartCameraSource()
