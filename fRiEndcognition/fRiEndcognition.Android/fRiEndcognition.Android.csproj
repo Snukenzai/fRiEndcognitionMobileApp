@@ -60,17 +60,16 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Camera.cs" />
-    <Compile Include="CameraSourcePreview.cs" />
-    <Compile Include="FaceDetection.cs" />
-    <Compile Include="FaceGraphic.cs" />
-    <Compile Include="GraphicOverlay.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Profile.cs" />
-    <Compile Include="Register.cs" />
+    <Compile Include="Camera\Camera.cs" />
+    <Compile Include="Camera\CameraSourcePreview.cs" />
+    <Compile Include="Recognition\Detection\FaceDetection.cs" />
+    <Compile Include="Recognition\Detection\FaceGraphic.cs" />
+    <Compile Include="Camera\GraphicOverlay.cs" />
+    <Compile Include="UI\Login.cs" />
+    <Compile Include="UI\MainActivity.cs" />
+    <Compile Include="UI\Menu.cs" />
+    <Compile Include="UI\Profile.cs" />
+    <Compile Include="UI\Register.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
