@@ -36,7 +36,7 @@
 		android:id="@+id/RegisterPassword2" />
 	<Button
 		android:text="Register"
-		android:layout_width="200.0dp"
+		android:layout_width="250.0dp"
 		android:layout_height="wrap_content"
 		android:id="@+id/FinalRegister" 
 	    android:layout_gravity="center"/>

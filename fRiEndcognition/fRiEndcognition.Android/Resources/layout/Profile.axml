@@ -29,8 +29,8 @@
 		android:id="@+id/ProfileSurname" />
 	<Button
 		android:text="Upload profile picture"
+		android:layout_width="250.0dp"
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
 		android:layout_gravity="center"
 		android:id="@+id/changePicture" />
 

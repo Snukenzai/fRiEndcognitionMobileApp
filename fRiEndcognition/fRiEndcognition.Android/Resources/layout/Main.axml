@@ -17,14 +17,14 @@
 		android:id="@+id/Logo" />
 	<Button
 		android:text="Login"
-		android:layout_width="200.0dp"
+		android:layout_width="250.0dp"
 		android:layout_height="wrap_content"
 		android:id="@+id/LoginB"
 		android:layout_gravity="center"
 		android:layout_centerInParent="true" />
 	<Button
 		android:text="Register"
-		android:layout_width="200.0dp"
+		android:layout_width="250.0dp"
 		android:layout_height="wrap_content"
 		android:id="@+id/RegisterB"
 		android:layout_gravity="center" />
