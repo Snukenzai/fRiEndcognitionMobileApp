@@ -18,7 +18,7 @@ using static friendcognition.Droid.StateController;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "RegisterCamera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait))]
+    [Activity(Label = "RegisterCamera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class RegisterCamera : Activity, IFactory
     {
         private static readonly string TAG = "friendcognition";
@@ -36,7 +36,7 @@ namespace friendcognition.Droid
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
             ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
-            menu.Click += OpenMenu;
+            //menu.Click += OpenMenu; <--- for now, let's stay without menu for Register Camera
             changeCamera.Click += ChangeCameraFacing;
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
@@ -47,11 +47,15 @@ namespace friendcognition.Droid
             StateController.StateControllerInstance.SetCameraType(cameraType);
 
         }
+
+        /*
         private void OpenMenu(object sender, EventArgs e)
         {
+            StateControllerInstance.SetCameraType(cameraType);
             Intent i = new Intent(this, typeof(Menu));
             StartActivity(i);
         }
+        */
 
         private void ChangeCameraFacing(object sender, EventArgs e)
         {

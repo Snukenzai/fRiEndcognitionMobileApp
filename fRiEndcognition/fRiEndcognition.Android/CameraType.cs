@@ -2,7 +2,7 @@
 {
     partial class StateController
     {
-        public static enum CameraType { Camera, RegisterCamera}
+        public enum CameraType { Camera, RegisterCamera}
 
         
     }

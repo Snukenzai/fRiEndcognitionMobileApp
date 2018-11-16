@@ -47,9 +47,12 @@ namespace friendcognition.Droid
 
             CreateCameraSource(CameraFacing.Back);
 
+            StateControllerInstance.SetCameraType(cameraType);
+
         }
         private void OpenMenu(object sender, EventArgs e)
         {
+            StateControllerInstance.SetCameraType(cameraType);
             Intent i = new Intent(this, typeof(Menu));
             StartActivity(i);
         }

@@ -14,15 +14,6 @@
             android:layout_height="match_parent" />
     </friendcognition.Droid.CameraSourcePreview>
 	<ImageButton
-		android:id="@+id/Menu"
-        android:layout_width="45dip"
-        android:layout_height="45dip"
-        android:src="@drawable/storas"
-		android:background="@android:color/transparent"
-        android:layout_marginTop="3dp"
-		android:layout_alignParentLeft="true"
-        android:layout_marginLeft="6dp" />
-	<ImageButton
 		android:id="@+id/ChangeCamera"
 		android:layout_width="50dip"
 		android:layout_height="45dip"
@@ -40,7 +31,6 @@
 		android:layout_marginTop="0.0dp"
 		android:layout_marginRight="6dp"
 		android:layout_centerHorizontal="true"
-		android:layout
-		android:layout_alignTop="@id/preview" :alignParentBottom="true"
+		android:layout_alignParentBottom="true"
 	/>
 </RelativeLayout>
