@@ -27,7 +27,7 @@ namespace friendcognition.Droid
         }
         private void Registered(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Camera));
+            Intent i = new Intent(this, typeof(RegisterCamera));
 
             if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
             {
