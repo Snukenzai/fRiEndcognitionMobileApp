@@ -13,6 +13,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using static Android.Resource.Id;
 using static Android.Gms.Vision.MultiProcessor;
 using static friendcognition.Droid.StateController;
 
@@ -36,8 +37,10 @@ namespace friendcognition.Droid
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
             ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
+            ImageButton takePhoto = FindViewById<ImageButton>(Resource.Id.TakePhoto);
             //menu.Click += OpenMenu; <--- for now, let's stay without menu for Register Camera
             changeCamera.Click += ChangeCameraFacing;
+            takePhoto.Click += TakePhoto;
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
@@ -46,6 +49,11 @@ namespace friendcognition.Droid
 
             StateController.StateControllerInstance.SetCameraType(cameraType);
 
+        }
+
+        private void TakePhoto(object sender, EventArgs e)
+        {
+            cameraSource.TakePicture(null, null);
         }
 
         /*

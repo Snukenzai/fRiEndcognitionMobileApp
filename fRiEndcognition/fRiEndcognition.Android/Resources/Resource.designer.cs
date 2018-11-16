@@ -3231,6 +3231,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c003f
 			public const int SYM = 2131492927;
 			
+			// aapt resource value: 0x7f0c00e4
+			public const int TakePhoto = 2131493092;
+			
 			// aapt resource value: 0x7f0c00ca
 			public const int action0 = 2131493066;
 			
@@ -3501,14 +3504,14 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c00aa
 			public const int logoutButton = 2131493034;
 			
-			// aapt resource value: 0x7f0c00e8
-			public const int masked = 2131493096;
+			// aapt resource value: 0x7f0c00e9
+			public const int masked = 2131493097;
 			
 			// aapt resource value: 0x7f0c00cd
 			public const int media_actions = 2131493069;
 			
-			// aapt resource value: 0x7f0c00e6
-			public const int message = 2131493094;
+			// aapt resource value: 0x7f0c00e7
+			public const int message = 2131493095;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int middle = 2131492921;
@@ -3723,8 +3726,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c002d
 			public const int showTitle = 2131492909;
 			
-			// aapt resource value: 0x7f0c00e4
-			public const int sliding_tabs = 2131493092;
+			// aapt resource value: 0x7f0c00e5
+			public const int sliding_tabs = 2131493093;
 			
 			// aapt resource value: 0x7f0c0096
 			public const int smallLabel = 2131493014;
@@ -3807,8 +3810,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0076
 			public const int title_template = 2131492982;
 			
-			// aapt resource value: 0x7f0c00e5
-			public const int toolbar = 2131493093;
+			// aapt resource value: 0x7f0c00e6
+			public const int toolbar = 2131493094;
 			
 			// aapt resource value: 0x7f0c0046
 			public const int top = 2131492934;
@@ -3846,8 +3849,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0016
 			public const int view_offset_helper = 2131492886;
 			
-			// aapt resource value: 0x7f0c00e7
-			public const int visible = 2131493095;
+			// aapt resource value: 0x7f0c00e8
+			public const int visible = 2131493096;
 			
 			// aapt resource value: 0x7f0c00bf
 			public const int volume_item_container = 2131493055;
