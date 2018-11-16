@@ -15,6 +15,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using static Android.Gms.Vision.MultiProcessor;
+using static friendcognition.Droid.StateController;
 
 namespace friendcognition.Droid
 {
@@ -26,6 +27,8 @@ namespace friendcognition.Droid
         private CameraSource cameraSource = null;
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
+        private static CameraType cameraType = CameraType.Camera;
+
 
         private static readonly int gms_code = 9001;
 

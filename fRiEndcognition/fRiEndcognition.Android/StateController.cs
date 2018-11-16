@@ -18,13 +18,13 @@ namespace friendcognition.Droid
         private static StateController instance = null;
         private static readonly object padlock = new object();
 
-        private CameraType currentType;
+        private CameraType currentType = CameraType.Camera;
 
         StateController()
         {
         }
 
-        public static StateController Instance
+        public static StateController StateControllerInstance
         {
             get
             {
@@ -37,6 +37,16 @@ namespace friendcognition.Droid
                     return instance;
                 }
             }
+        }
+
+        public CameraType GetCameraType()
+        {
+            return StateControllerInstance.currentType;
+        }
+
+        public void SetCameraType(CameraType cameraType)
+        {
+            StateControllerInstance.currentType = cameraType;
         }
 
         
