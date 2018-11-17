@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\CameraSourcePreview.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
