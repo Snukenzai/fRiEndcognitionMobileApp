@@ -16,6 +16,9 @@ using Android.Widget;
 using static Android.Resource.Id;
 using static Android.Gms.Vision.MultiProcessor;
 using static friendcognition.Droid.StateController;
+using Android.Support.V4.App;
+using Android;
+using Android.Content.PM;
 
 namespace friendcognition.Droid
 {
@@ -26,6 +29,12 @@ namespace friendcognition.Droid
         private CameraSource cameraSource = null;
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
+        private ImageButton changeCamera;
+        private ImageButton takePhoto;
+        private ImageButton declinePhoto;
+        private ImageButton confirmPhoto;
+        Android.Graphics.Bitmap bitmapPicture;
+
         private static CameraType cameraType = CameraType.RegisterCamera;
 
         private static readonly int gms_code = 9001;
@@ -35,12 +44,22 @@ namespace friendcognition.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RegisterCamera);
 
-            ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
-            ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
-            ImageButton takePhoto = FindViewById<ImageButton>(Resource.Id.TakePhoto);
+            //ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
+            changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
+            takePhoto = FindViewById<ImageButton>(Resource.Id.TakePhoto);
+            declinePhoto = FindViewById<ImageButton>(Resource.Id.DeclinePhoto);
+            confirmPhoto = FindViewById<ImageButton>(Resource.Id.ConfirmPhoto);
             //menu.Click += OpenMenu; <--- for now, let's stay without menu for Register Camera
             changeCamera.Click += ChangeCameraFacing;
             takePhoto.Click += TakePhoto;
+            declinePhoto.Click += DeclinePhoto;
+            confirmPhoto.Click += ConfirmPhoto;
+
+
+            // vvv hide the unwanted buttons
+            declinePhoto.Visibility = ViewStates.Gone;
+            confirmPhoto.Visibility = ViewStates.Gone;
+
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
@@ -56,6 +75,11 @@ namespace friendcognition.Droid
             try
             {
                 cameraSource.TakePicture(null, this);
+                cameraSource.Stop();
+                takePhoto.Visibility = ViewStates.Gone;
+                changeCamera.Visibility = ViewStates.Gone;
+                declinePhoto.Visibility = ViewStates.Visible;
+                confirmPhoto.Visibility = ViewStates.Visible;
             }
             catch(Exception ex)
             {
@@ -161,9 +185,35 @@ namespace friendcognition.Droid
             return new friendcognition.Droid.FaceDetection(graphicOverlay, cameraSource);
         }
 
+        private void DeclinePhoto(object sender, EventArgs e)
+        {
+            takePhoto.Visibility = ViewStates.Visible;
+            changeCamera.Visibility = ViewStates.Visible;
+            declinePhoto.Visibility = ViewStates.Gone;
+            confirmPhoto.Visibility = ViewStates.Gone;
+            StartCameraSource();
+        }
+
+        private void ConfirmPhoto(object sender, EventArgs e)
+        {
+            
+
+            Intent i = new Intent(this, typeof(Camera));
+
+            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+            }
+            else
+            {
+                StartActivity(i);
+            }
+        }
+
+
         public void OnPictureTaken(byte[] data)
         {
-            Android.Graphics.Bitmap bitmapPicture = Android.Graphics.BitmapFactory.DecodeByteArray(data, 0, data.Length);
+            bitmapPicture = Android.Graphics.BitmapFactory.DecodeByteArray(data, 0, data.Length);
             // Data is saved in the bitmapPicture variable, we should store it in the database now
         }
     }

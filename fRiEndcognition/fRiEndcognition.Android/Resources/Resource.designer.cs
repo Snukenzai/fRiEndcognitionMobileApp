@@ -2393,26 +2393,26 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02014a
-			public const int avd_hide_password_1 = 2130837834;
+			// aapt resource value: 0x7f02014f
+			public const int avd_hide_password_1 = 2130837839;
 			
-			// aapt resource value: 0x7f02014b
-			public const int avd_hide_password_2 = 2130837835;
+			// aapt resource value: 0x7f020150
+			public const int avd_hide_password_2 = 2130837840;
 			
-			// aapt resource value: 0x7f02014c
-			public const int avd_hide_password_3 = 2130837836;
+			// aapt resource value: 0x7f020151
+			public const int avd_hide_password_3 = 2130837841;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02014d
-			public const int avd_show_password_1 = 2130837837;
+			// aapt resource value: 0x7f020152
+			public const int avd_show_password_1 = 2130837842;
 			
-			// aapt resource value: 0x7f02014e
-			public const int avd_show_password_2 = 2130837838;
+			// aapt resource value: 0x7f020153
+			public const int avd_show_password_2 = 2130837843;
 			
-			// aapt resource value: 0x7f02014f
-			public const int avd_show_password_3 = 2130837839;
+			// aapt resource value: 0x7f020154
+			public const int avd_show_password_3 = 2130837844;
 			
 			// aapt resource value: 0x7f020055
 			public const int common_full_open_on_phone = 2130837589;
@@ -3125,11 +3125,11 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f020141
 			public const int notification_icon_background = 2130837825;
 			
-			// aapt resource value: 0x7f020148
-			public const int notification_template_icon_bg = 2130837832;
+			// aapt resource value: 0x7f02014d
+			public const int notification_template_icon_bg = 2130837837;
 			
-			// aapt resource value: 0x7f020149
-			public const int notification_template_icon_low_bg = 2130837833;
+			// aapt resource value: 0x7f02014e
+			public const int notification_template_icon_low_bg = 2130837838;
 			
 			// aapt resource value: 0x7f020142
 			public const int notification_tile_bg = 2130837826;
@@ -3148,6 +3148,21 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7f020147
 			public const int tooltip_frame_light = 2130837831;
+			
+			// aapt resource value: 0x7f020148
+			public const int UI_Icon_Close = 2130837832;
+			
+			// aapt resource value: 0x7f020149
+			public const int UI_Icon_Confirm = 2130837833;
+			
+			// aapt resource value: 0x7f02014a
+			public const int UI_Icon_Menu = 2130837834;
+			
+			// aapt resource value: 0x7f02014b
+			public const int UI_Icon_Photo = 2130837835;
+			
+			// aapt resource value: 0x7f02014c
+			public const int UI_Icon_Refresh = 2130837836;
 			
 			static Drawable()
 			{
@@ -3170,6 +3185,12 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7f0c0095
 			public const int ChangeCamera = 2131493013;
+			
+			// aapt resource value: 0x7f0c00e6
+			public const int ConfirmPhoto = 2131493094;
+			
+			// aapt resource value: 0x7f0c00e5
+			public const int DeclinePhoto = 2131493093;
 			
 			// aapt resource value: 0x7f0c003c
 			public const int FUNCTION = 2131492924;
@@ -3504,14 +3525,14 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c00aa
 			public const int logoutButton = 2131493034;
 			
-			// aapt resource value: 0x7f0c00e9
-			public const int masked = 2131493097;
+			// aapt resource value: 0x7f0c00eb
+			public const int masked = 2131493099;
 			
 			// aapt resource value: 0x7f0c00cd
 			public const int media_actions = 2131493069;
 			
-			// aapt resource value: 0x7f0c00e7
-			public const int message = 2131493095;
+			// aapt resource value: 0x7f0c00e9
+			public const int message = 2131493097;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int middle = 2131492921;
@@ -3726,8 +3747,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c002d
 			public const int showTitle = 2131492909;
 			
-			// aapt resource value: 0x7f0c00e5
-			public const int sliding_tabs = 2131493093;
+			// aapt resource value: 0x7f0c00e7
+			public const int sliding_tabs = 2131493095;
 			
 			// aapt resource value: 0x7f0c0096
 			public const int smallLabel = 2131493014;
@@ -3810,8 +3831,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0076
 			public const int title_template = 2131492982;
 			
-			// aapt resource value: 0x7f0c00e6
-			public const int toolbar = 2131493094;
+			// aapt resource value: 0x7f0c00e8
+			public const int toolbar = 2131493096;
 			
 			// aapt resource value: 0x7f0c0046
 			public const int top = 2131492934;
@@ -3849,8 +3870,8 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c0016
 			public const int view_offset_helper = 2131492886;
 			
-			// aapt resource value: 0x7f0c00e8
-			public const int visible = 2131493096;
+			// aapt resource value: 0x7f0c00ea
+			public const int visible = 2131493098;
 			
 			// aapt resource value: 0x7f0c00bf
 			public const int volume_item_container = 2131493055;
