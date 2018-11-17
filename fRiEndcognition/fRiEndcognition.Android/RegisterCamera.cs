@@ -15,7 +15,6 @@ using Android.Views;
 using Android.Widget;
 using static Android.Resource.Id;
 using static Android.Gms.Vision.MultiProcessor;
-using static friendcognition.Droid.StateController;
 using Android.Support.V4.App;
 using Android;
 using Android.Content.PM;
@@ -34,8 +33,6 @@ namespace friendcognition.Droid
         private ImageButton declinePhoto;
         private ImageButton confirmPhoto;
         Android.Graphics.Bitmap bitmapPicture;
-
-        private static CameraType cameraType = CameraType.RegisterCamera;
 
         private static readonly int gms_code = 9001;
 
@@ -65,8 +62,6 @@ namespace friendcognition.Droid
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
 
             CreateCameraSource(CameraFacing.Back);
-
-            StateController.StateControllerInstance.SetCameraType(cameraType);
 
         }
 

@@ -15,7 +15,6 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using static Android.Gms.Vision.MultiProcessor;
-using static friendcognition.Droid.StateController;
 
 namespace friendcognition.Droid
 {
@@ -27,7 +26,6 @@ namespace friendcognition.Droid
         private CameraSource cameraSource = null;
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
-        private static CameraType cameraType = CameraType.Camera;
 
 
         private static readonly int gms_code = 9001;
@@ -47,12 +45,9 @@ namespace friendcognition.Droid
 
             CreateCameraSource(CameraFacing.Back);
 
-            StateControllerInstance.SetCameraType(cameraType);
-
         }
         private void OpenMenu(object sender, EventArgs e)
         {
-            StateControllerInstance.SetCameraType(cameraType);
             Intent i = new Intent(this, typeof(Menu));
             StartActivity(i);
         }
