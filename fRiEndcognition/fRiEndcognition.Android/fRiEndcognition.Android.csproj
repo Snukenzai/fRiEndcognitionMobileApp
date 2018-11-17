@@ -60,14 +60,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CameraType.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\CameraSourcePreview.cs" />
+    <Compile Include="DataController.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />
     <Compile Include="RegisterCamera.cs" />
-    <Compile Include="StateController.cs" />
     <Compile Include="UI\Login.cs" />
     <Compile Include="UI\MainActivity.cs" />
     <Compile Include="UI\Menu.cs" />

@@ -9,7 +9,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using static friendcognition.Droid.StateController;
 
 namespace friendcognition.Droid
 {
@@ -42,18 +41,9 @@ namespace friendcognition.Droid
         }
         private void OpenCamera(object sender, EventArgs e)
         {
-            CameraType cameraType = StateControllerInstance.GetCameraType();
-            if (cameraType == CameraType.Camera)
-            {
-                Intent i = new Intent(this, typeof(Camera));
-                StartActivity(i);
-            }
-            else if (cameraType == CameraType.RegisterCamera)
-            {
-                Intent i = new Intent(this, typeof(RegisterCamera));
-                StartActivity(i);
-            }
-            
+            Intent i = new Intent(this, typeof(Camera));
+            StartActivity(i);
+
         }
     }
 }

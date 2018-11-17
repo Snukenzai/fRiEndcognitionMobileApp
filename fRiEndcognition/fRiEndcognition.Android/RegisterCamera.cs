@@ -70,7 +70,7 @@ namespace friendcognition.Droid
             try
             {
                 cameraSource.TakePicture(null, this);
-                cameraSource.Stop();
+                //cameraSource.Stop(); <--- just dont do it, dont stop it too early, he's to young to die and the whole program just goes nuts
                 takePhoto.Visibility = ViewStates.Gone;
                 changeCamera.Visibility = ViewStates.Gone;
                 declinePhoto.Visibility = ViewStates.Visible;
@@ -191,17 +191,24 @@ namespace friendcognition.Droid
 
         private void ConfirmPhoto(object sender, EventArgs e)
         {
-            
 
-            Intent i = new Intent(this, typeof(Camera));
-
-            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+            if (DataController.Instance.SavePicture(bitmapPicture))
             {
-                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                Intent i = new Intent(this, typeof(Camera));
+
+                if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                }
+                else
+                {
+                    StartActivity(i);
+                }
             }
             else
             {
-                StartActivity(i);
+                DeclinePhoto(null, null);
+                Toast.MakeText(ApplicationContext, "Error: picture failed to be saved...", ToastLength.Long).Show();
             }
         }
 
@@ -209,6 +216,7 @@ namespace friendcognition.Droid
         public void OnPictureTaken(byte[] data)
         {
             bitmapPicture = Android.Graphics.BitmapFactory.DecodeByteArray(data, 0, data.Length);
+            cameraSource.Stop();
             // Data is saved in the bitmapPicture variable, we should store it in the database now
         }
     }
