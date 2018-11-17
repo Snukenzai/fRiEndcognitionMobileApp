@@ -20,7 +20,7 @@ using static friendcognition.Droid.StateController;
 namespace friendcognition.Droid
 {
     [Activity(Label = "RegisterCamera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class RegisterCamera : Activity, IFactory
+    public class RegisterCamera : Activity, IFactory, CameraSource.IPictureCallback
     {
         private static readonly string TAG = "friendcognition";
         private CameraSource cameraSource = null;
@@ -53,7 +53,14 @@ namespace friendcognition.Droid
 
         private void TakePhoto(object sender, EventArgs e)
         {
-            cameraSource.TakePicture(null, null);
+            try
+            {
+                cameraSource.TakePicture(null, this);
+            }
+            catch(Exception ex)
+            {
+                Toast.MakeText(ApplicationContext, "Error: " + ex.ToString(), ToastLength.Long).Show();
+            }
         }
 
         /*
@@ -152,6 +159,12 @@ namespace friendcognition.Droid
         public Tracker Create(Java.Lang.Object item)
         {
             return new friendcognition.Droid.FaceDetection(graphicOverlay, cameraSource);
+        }
+
+        public void OnPictureTaken(byte[] data)
+        {
+            Android.Graphics.Bitmap bitmapPicture = Android.Graphics.BitmapFactory.DecodeByteArray(data, 0, data.Length);
+            // Data is saved in the bitmapPicture variable, we should store it in the database now
         }
     }
 }
