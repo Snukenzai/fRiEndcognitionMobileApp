@@ -64,7 +64,7 @@ namespace friendcognition.Droid
 
         }
 
-        public RegistrationCallbacks Register(string name, string surname, string email, string password)
+        public RegistrationCallbacks Register(string name, string surname, string email, string password, string repeatPassword)
         {
             if (!ValidateEmail(email))
             {
@@ -87,6 +87,11 @@ namespace friendcognition.Droid
             {
                 //MessageBox.Show(Constants.INVALID_SURNAME);
                 return RegistrationCallbacks.INVALID_SURNAME;
+            }
+
+            if (password.Length == 0 || !password.Equals(repeatPassword))
+            {
+                return RegistrationCallbacks.INVALID_PASSWORD;
             }
 
             loginInfo.Add(email, password);
