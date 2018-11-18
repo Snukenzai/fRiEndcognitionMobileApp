@@ -194,7 +194,7 @@ namespace friendcognition.Droid
 
             if (DataController.Instance.SavePicture(bitmapPicture))
             {
-                Intent i = new Intent(this, typeof(Camera));
+                Intent i = new Intent(this, typeof(CameraActivity));
 
                 if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
                 {

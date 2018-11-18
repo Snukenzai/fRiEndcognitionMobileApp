@@ -18,8 +18,8 @@ using static Android.Gms.Vision.MultiProcessor;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Camera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class Camera : Activity, IFactory
+    [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+    public class CameraActivity : Activity, IFactory
     {
 
         private static readonly string TAG = "friendcognition";
@@ -48,7 +48,7 @@ namespace friendcognition.Droid
         }
         private void OpenMenu(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Menu));
+            Intent i = new Intent(this, typeof(MenuActivity));
             StartActivity(i);
         }
 

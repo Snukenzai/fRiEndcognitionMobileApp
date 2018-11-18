@@ -12,8 +12,8 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Menu", Theme = "@style/Theme.AppCompat.NoActionBar")]
-    public class Menu : Activity
+    [Activity(Label = "MenuActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
+    public class MenuActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +31,7 @@ namespace friendcognition.Droid
         }
         private void OpenProfile(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Profile));
+            Intent i = new Intent(this, typeof(ProfileActivity));
             StartActivity(i);
         }
         private void OpenMain(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace friendcognition.Droid
         }
         private void OpenCamera(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Camera));
+            Intent i = new Intent(this, typeof(CameraActivity));
             StartActivity(i);
 
         }

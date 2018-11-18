@@ -14,8 +14,8 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Register", Theme = "@style/Theme.AppCompat.NoActionBar")]
-    public class Register : Activity
+    [Activity(Label = "RegisterActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
+    public class RegisterActivity : Activity
     {
         private EditText name;
         private EditText surname;
@@ -87,7 +87,7 @@ namespace friendcognition.Droid
             {
                 if (grantResults[0] == Permission.Granted)
                 {
-                    Intent i = new Intent(this, typeof(Camera));
+                    Intent i = new Intent(this, typeof(CameraActivity));
                     StartActivity(i);
                 }
             }

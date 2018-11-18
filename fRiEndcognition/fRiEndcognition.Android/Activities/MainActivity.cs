@@ -37,12 +37,12 @@ namespace friendcognition.Droid
         }
         private void DoLogin(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Login));
+            Intent i = new Intent(this, typeof(LoginActivity));
             StartActivity(i);
         }
         private void DoRegister(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Register));
+            Intent i = new Intent(this, typeof(RegisterActivity));
             StartActivity(i);
         }
 

@@ -12,8 +12,8 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Profile", Theme = "@style/Theme.AppCompat.NoActionBar")]
-    public class Profile : Activity
+    [Activity(Label = "ProfileActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
+    public class ProfileActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

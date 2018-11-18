@@ -14,8 +14,8 @@ using Android.Widget;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "Login", Theme = "@style/Theme.AppCompat.NoActionBar")]
-    public class Login : Activity
+    [Activity(Label = "LoginActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
+    public class LoginActivity : Activity
     {
 
         private EditText email;
@@ -35,7 +35,7 @@ namespace friendcognition.Droid
 
             if (DataController.Instance.Login(email.Text, password.Text))
             {
-                Intent i = new Intent(this, typeof(Camera));
+                Intent i = new Intent(this, typeof(CameraActivity));
 
                 if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
                 {
@@ -60,7 +60,7 @@ namespace friendcognition.Droid
             {
                 if (grantResults[0] == Permission.Granted)
                 {
-                    Intent i = new Intent(this, typeof(Camera));
+                    Intent i = new Intent(this, typeof(CameraActivity));
                     StartActivity(i);
                 }
             }
