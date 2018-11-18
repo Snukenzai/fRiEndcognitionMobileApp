@@ -43,6 +43,7 @@ namespace friendcognition.Droid
         {
             Intent i = new Intent(this, typeof(Camera));
             StartActivity(i);
+
         }
     }
 }

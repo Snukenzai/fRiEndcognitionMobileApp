@@ -62,9 +62,11 @@
   <ItemGroup>
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\CameraSourcePreview.cs" />
+    <Compile Include="DataController.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />
+    <Compile Include="RegisterCamera.cs" />
     <Compile Include="UI\Login.cs" />
     <Compile Include="UI\MainActivity.cs" />
     <Compile Include="UI\Menu.cs" />
@@ -146,6 +148,32 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\kamera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RegisterCamera.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shutter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UI_Icon_Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UI_Icon_Photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UI_Icon_Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UI_Icon_Confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UI_Icon_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="..\friendcognition\friendcognition.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -17,26 +17,68 @@ namespace friendcognition.Droid
     [Activity(Label = "Register", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Register : Activity
     {
+        private EditText name;
+        private EditText surname;
+        private EditText email;
+        private EditText password;
+        private EditText repeatPassword;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Register);
+
+            name = FindViewById<EditText>(Resource.Id.RegisterName);
+            surname = FindViewById<EditText>(Resource.Id.RegisterSurname);
+            email = FindViewById<EditText>(Resource.Id.RegisterEmail);
+            password = FindViewById<EditText>(Resource.Id.RegisterPassword);
+            repeatPassword = FindViewById<EditText>(Resource.Id.RegisterPassword2);
 
             Button registered = FindViewById<Button>(Resource.Id.FinalRegister);
             registered.Click += Registered;
         }
         private void Registered(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Camera));
+            DataController.RegistrationCallbacks callback = DataController.Instance.Register(name.Text, surname.Text, email.Text, password.Text, repeatPassword.Text);
 
-            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+            if (callback == DataController.RegistrationCallbacks.PASSED)
             {
-                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                Intent i = new Intent(this, typeof(RegisterCamera));
+
+                if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                }
+                else
+                {
+                    StartActivity(i);
+                }
             }
             else
             {
-                StartActivity(i);
+                switch (callback)
+                {
+                    case DataController.RegistrationCallbacks.EMAIL_EXISTS:
+                        Toast.MakeText(ApplicationContext, Resource.String.EMAIL_ALREADY_EXISTS, ToastLength.Long).Show();
+                        break;
+                    case DataController.RegistrationCallbacks.INVALID_NAME:
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_NAME, ToastLength.Long).Show();
+                        break;
+                    case DataController.RegistrationCallbacks.INVALID_SURNAME:
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_SURNAME, ToastLength.Long).Show();
+                        break;
+                    case DataController.RegistrationCallbacks.INVALID_EMAIL:
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
+                        break;
+                    case DataController.RegistrationCallbacks.INVALID_PASSWORD:
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_PASSWORD, ToastLength.Long).Show();
+                        break;
+                    default:
+                        Toast.MakeText(ApplicationContext, Resource.String.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
+                        break;
+                }
             }
+            
         }
 
         public void onRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

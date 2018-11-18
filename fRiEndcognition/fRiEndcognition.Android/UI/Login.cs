@@ -17,26 +17,41 @@ namespace friendcognition.Droid
     [Activity(Label = "Login", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class Login : Activity
     {
+
+        private EditText email;
+        private EditText password;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
 
-            Button logined = FindViewById<Button>(Resource.Id.FinalLogin);
-            logined.Click += Logined;
+            Button loggedIn = FindViewById<Button>(Resource.Id.FinalLogin);
+            email = FindViewById<EditText>(Resource.Id.LoginEmail);
+            password = FindViewById<EditText>(Resource.Id.LoginPassword);
+            loggedIn.Click += LoggedIn;
         }
-        private void Logined(object sender, EventArgs e)
+        private void LoggedIn(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(Camera));
 
-            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+            if (DataController.Instance.Login(email.Text, password.Text))
             {
-                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                Intent i = new Intent(this, typeof(Camera));
+
+                if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                {
+                    ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                }
+                else
+                {
+                    StartActivity(i);
+                }
             }
             else
             {
-                StartActivity(i);
+                Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
             }
+
+            
         }
 
         public void onRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
