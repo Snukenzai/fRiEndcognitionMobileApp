@@ -59,22 +59,22 @@ namespace friendcognition.Droid
                 switch (callback)
                 {
                     case DataController.RegistrationCallbacks.EMAIL_EXISTS:
-                        Toast.MakeText(ApplicationContext, Constants.EMAIL_ALREADY_EXISTS, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.EMAIL_ALREADY_EXISTS, ToastLength.Long).Show();
                         break;
                     case DataController.RegistrationCallbacks.INVALID_NAME:
-                        Toast.MakeText(ApplicationContext, Constants.INVALID_NAME, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_NAME, ToastLength.Long).Show();
                         break;
                     case DataController.RegistrationCallbacks.INVALID_SURNAME:
-                        Toast.MakeText(ApplicationContext, Constants.INVALID_SURNAME, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_SURNAME, ToastLength.Long).Show();
                         break;
                     case DataController.RegistrationCallbacks.INVALID_EMAIL:
-                        Toast.MakeText(ApplicationContext, Constants.INVALID_EMAIL, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
                         break;
                     case DataController.RegistrationCallbacks.INVALID_PASSWORD:
-                        Toast.MakeText(ApplicationContext, Constants.INVALID_PASSWORD, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.INVALID_PASSWORD, ToastLength.Long).Show();
                         break;
                     default:
-                        Toast.MakeText(ApplicationContext, Constants.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, Resource.String.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
                         break;
                 }
             }

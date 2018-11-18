@@ -48,7 +48,7 @@ namespace friendcognition.Droid
             }
             else
             {
-                Toast.MakeText(ApplicationContext, Constants.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
+                Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
             }
 
             

@@ -17,6 +17,9 @@ namespace friendcognition.Droid
 
         public enum RegistrationCallbacks { INVALID_NAME, INVALID_SURNAME, INVALID_EMAIL, INVALID_PASSWORD, EMAIL_EXISTS, PASSED}
 
+        public const string REGEX_ONLY_LETTERS = @"^[a-zA-Z]+$";
+        public const string REGEX_EMAIL = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
         private static DataController instance = null;
         private static readonly object padlock = new object();
 
@@ -102,7 +105,7 @@ namespace friendcognition.Droid
 
         private bool ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, Constants.REGEX_EMAIL))
+            if (Regex.IsMatch(email, REGEX_EMAIL))
             {
                 return true;
             }
@@ -114,7 +117,7 @@ namespace friendcognition.Droid
 
         private bool ValidateStringOnlyLetters(string input)
         {
-            if (Regex.IsMatch(input, Constants.REGEX_ONLY_LETTERS))
+            if (Regex.IsMatch(input, REGEX_ONLY_LETTERS))
             {
                 return true;
             }
