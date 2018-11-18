@@ -4232,6 +4232,27 @@ namespace friendcognition.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f090053
+			public const int EMAIL_ALREADY_EXISTS = 2131296339;
+			
+			// aapt resource value: 0x7f090050
+			public const int INVALID_EMAIL = 2131296336;
+			
+			// aapt resource value: 0x7f09004e
+			public const int INVALID_NAME = 2131296334;
+			
+			// aapt resource value: 0x7f090051
+			public const int INVALID_PASSWORD = 2131296337;
+			
+			// aapt resource value: 0x7f09004f
+			public const int INVALID_SURNAME = 2131296335;
+			
+			// aapt resource value: 0x7f090052
+			public const int SOMETHING_WENT_WRONG = 2131296338;
+			
+			// aapt resource value: 0x7f09004d
+			public const int WRONG_EMAIL_OR_PASSWORD = 2131296333;
+			
 			// aapt resource value: 0x7f090026
 			public const int abc_action_bar_home_description = 2131296294;
 			

@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\CameraSourcePreview.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
@@ -172,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\UI_Icon_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="..\friendcognition\friendcognition.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

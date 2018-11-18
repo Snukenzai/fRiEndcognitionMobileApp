@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="WRONG_EMAIL_OR_PASSWORD">Wrong email or password...</string>
+  <string name="INVALID_NAME">Invalid name</string>
+  <string name="INVALID_SURNAME">Invalid surname</string>
+  <string name="INVALID_EMAIL">Invalid email</string>
+  <string name="INVALID_PASSWORD">Invalid password</string>
+  <string name="SOMETHING_WENT_WRONG">Whoops! Something went wrong...</string>
+  <string name="EMAIL_ALREADY_EXISTS">Email already exists</string>
+</resources>
