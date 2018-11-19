@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Http">
+      <Version>2.2.29</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
@@ -66,6 +69,7 @@
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />
+    <Compile Include="Recognition\RecognitionController.cs" />
     <Compile Include="RegisterCamera.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sender.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

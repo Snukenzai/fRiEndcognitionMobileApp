@@ -46,10 +46,11 @@ namespace friendcognition.Droid
 
         public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)
         {
-            // TO BE IMPLEMENTED, THE DATABASE LOGIC
+            Recognition.RecognitionController.UpdateAlbum(bitmapPicture);
 
             return true;
         }
+
 
         public bool Login(string email, string password)
         {
