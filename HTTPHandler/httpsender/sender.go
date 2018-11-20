@@ -1,32 +1,45 @@
 package httpsender
 
-import "net"
+import (
+	"io"
+	"log"
+	"net/http"
+)
 
-type Sender struct {
-	addr *net.TCPAddr
-}
+//Send sends http request to api
+func Send(config Config, request string, body io.Reader, url string) (*http.Response, error) {
+	client := http.Client{}
 
-func New(addr string) (*Sender, error) {
-	tcpAddr, err := net.ResolveTCPAddr("tcp", addr)
+	req, err := http.NewRequest(request, url, body)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("X-Mashape_key", config.MashapeKey)
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Accept", "application/json")
+
+	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}
 
-	return &Sender{
-		addr: tcpAddr,
-	}, nil
+	return resp, nil
 }
 
-func (s *Sender) Send() error {
-	conn, err := net.DialTCP("tcp", nil, s.addr)
-	if err != nil {
-		return err
-	}
-	defer conn.Close()
+// Rebuild rebuilds created albums after training
+func Rebuild(config Config) {
+	client := http.Client{}
 
-	_, err = conn.Write(nil)
+	req, err := http.NewRequest("GET", config.RebuildURL, nil)
 	if err != nil {
-		return err
+		log.Println(err)
 	}
-	return nil
+	req.Header.Set("X-Mashape_key", config.MashapeKey)
+	req.Header.Set("Accept", "application/json")
+
+	_, err = client.Do(req)
+	if err != nil {
+		log.Println(err)
+	}
+
 }

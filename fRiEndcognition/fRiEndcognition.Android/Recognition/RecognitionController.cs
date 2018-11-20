@@ -23,7 +23,7 @@ namespace friendcognition.Droid.Recognition
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("Train album", bmp);
+                streamWriter.Write(bmp);
             }
 
             var response = Sender.getResponse(httpWebRequest);

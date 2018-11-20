@@ -10,7 +10,6 @@ import (
 func main() {
 	http.HandleFunc("/train", httpsender.TrainHandler)
 	http.HandleFunc("/rec", httpsender.RecHandler)
-	http.HandleFunc("/db", httpsender.DBHandler)
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
