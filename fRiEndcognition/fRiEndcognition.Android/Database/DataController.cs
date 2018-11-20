@@ -46,8 +46,7 @@ namespace friendcognition.Droid
 
         public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)
         {
-            Recognition.RecognitionController.UpdateAlbum(bitmapPicture);
-
+            // Save to DB
             return true;
         }
 

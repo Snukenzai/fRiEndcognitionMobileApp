@@ -20,6 +20,7 @@ namespace friendcognition.Droid
         
         public static HttpWebRequest createRequestHandler(string requestType)
         {
+            //change URI to our web api ip
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://url");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = requestType;

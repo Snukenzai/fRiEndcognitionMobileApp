@@ -21,7 +21,7 @@ using Android.Content.PM;
 
 namespace friendcognition.Droid
 {
-    [Activity(Label = "RegisterCamera", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+    [Activity(Label = "RegisterCameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class RegisterCamera : Activity, IFactory, CameraSource.IPictureCallback
     {
         private static readonly string TAG = "friendcognition";

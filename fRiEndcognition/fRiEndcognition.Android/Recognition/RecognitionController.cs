@@ -16,23 +16,18 @@ namespace friendcognition.Droid.Recognition
     class RecognitionController
     { 
 
-        public static void UpdateAlbum(Android.Graphics.Bitmap bmp)
+        public static void TrainAlbum(Android.Graphics.Bitmap bmp)
         {
 
             var httpWebRequest = Sender.createRequestHandler("POST");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("Update album", bmp);
+                streamWriter.Write("Train album", bmp);
             }
 
             var response = Sender.getResponse(httpWebRequest);
 
-        }
-
-        public void TrainAlbum()
-        {
-            //Could be implemented if we add more than one pic
         }
 
         public static string RecognisePic(Android.Graphics.Bitmap bmp)
