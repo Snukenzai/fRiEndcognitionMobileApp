@@ -20,7 +20,7 @@ using static Android.Gms.Vision.MultiProcessor;
 namespace friendcognition.Droid
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class CameraActivity : Activity, ICameraStreaming, IFactory, View.IOnTouchListener
+    public class CameraActivity : Activity, ICameraStreaming, IFactory, View.IOnTouchListener, CameraSource.IPictureCallback
     {
 
         private static readonly string TAG = "friendcognition";
@@ -28,7 +28,7 @@ namespace friendcognition.Droid
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
 
-
+        private byte[] byteArrayPicture;
         private static readonly int gms_code = 9001;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -156,6 +156,13 @@ namespace friendcognition.Droid
         public Tracker Create(Java.Lang.Object item)
         {
             return new friendcognition.Droid.FaceDetection(graphicOverlay, cameraSource);
+        }
+
+        public void OnPictureTaken(byte[] data)
+        {
+            byteArrayPicture = data;
+            string result = Recognition.RecognitionController.RecognisePic(byteArrayPicture);
+
         }
     }
 }

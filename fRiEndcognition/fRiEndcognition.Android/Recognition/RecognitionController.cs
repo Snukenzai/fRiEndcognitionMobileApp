@@ -16,27 +16,26 @@ namespace friendcognition.Droid.Recognition
 {
     class RecognitionController
     {
-        public static void TrainAlbum(Android.Graphics.Bitmap bmp)
+        public static void TrainAlbum(byte[] pic)
         {
 
-            var httpWebRequest = Sender.createRequestHandler("POST");
+            var httpWebRequest = Sender.createRequestHandler("POST", "train");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(bmp);
+                streamWriter.Write("files: ", pic, "entryid: ", DataController.Instance().name);
             }
 
             var response = Sender.getResponse(httpWebRequest);
 
         }
 
-        public static string RecognisePic(Android.Graphics.Bitmap bmp)
+        public static string RecognisePic(byte[] pic)
         {
-            var httpWebRequest = Sender.createRequestHandler("POST");
-
+            var httpWebRequest = Sender.createRequestHandler("POST", "rec");
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("RecognisePic", bmp);
+                streamWriter.Write("files: ", pic);
             }
 
             var response = Sender.getResponse(httpWebRequest);

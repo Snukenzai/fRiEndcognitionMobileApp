@@ -32,14 +32,10 @@ namespace friendcognition.Droid
             changePicture = FindViewById<Button>(Resource.Id.changePicture);
         }
 
-        public void setId(int id, int percentage)
+        public void setId(string text)
         {
-            this.id = id;
-            this.percentage = percentage;
-
             profileSurname.Visibility = ViewStates.Gone;
 
-            string text = string.Format("You're {0}% similar to {1}.", percentage.ToString(), id.ToString());
             profileName.Text = text;
         }
     }

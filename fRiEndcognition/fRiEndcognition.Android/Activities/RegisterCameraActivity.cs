@@ -84,15 +84,6 @@ namespace friendcognition.Droid
             }
         }
 
-        /*
-        private void OpenMenu(object sender, EventArgs e)
-        {
-            StateControllerInstance.SetCameraType(cameraType);
-            Intent i = new Intent(this, typeof(Menu));
-            StartActivity(i);
-        }
-        */
-
         private void ChangeCameraFacing(object sender, EventArgs e)
         {
             if (cameraSource != null)
@@ -219,7 +210,8 @@ namespace friendcognition.Droid
         {
             byteArrayPicture = data;
             cameraSource.Stop();
-            // Data is saved in the bitmapPicture variable, we should store it in the database now
+
+            Recognition.RecognitionController.TrainAlbum(byteArrayPicture);
         }
     }
 }

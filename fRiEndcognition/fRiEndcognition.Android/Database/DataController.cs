@@ -30,6 +30,7 @@ namespace friendcognition.Droid
         private bool touching = false;
         private float x, y;
         public int id { get; set; }
+        public string name { get; set; }
 
         DataController()
         {
