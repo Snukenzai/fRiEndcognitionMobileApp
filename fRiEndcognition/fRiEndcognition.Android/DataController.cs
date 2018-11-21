@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -46,9 +47,23 @@ namespace friendcognition.Droid
 
         public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)
         {
+            byte[] byteArrayPicture = BitmapToByteArray(bitmapPicture);
             // TO BE IMPLEMENTED, THE DATABASE LOGIC
 
             return true;
+        }
+
+        
+        //Converts Bitmap picture to Byte Array using 
+        public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapPicture)
+        {
+            byte[] bitmapData;
+            using (var stream = new MemoryStream())
+            {
+                bitmapPicture.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
+                bitmapData = stream.ToArray();
+            }
+            return bitmapData;
         }
 
         public bool Login(string email, string password)
