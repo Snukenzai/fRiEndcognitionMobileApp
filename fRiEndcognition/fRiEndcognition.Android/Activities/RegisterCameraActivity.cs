@@ -33,7 +33,8 @@ namespace friendcognition.Droid
         private ImageButton takePhoto;
         private ImageButton declinePhoto;
         private ImageButton confirmPhoto;
-        Android.Graphics.Bitmap bitmapPicture;
+
+        private byte[] byteArrayPicture;
 
         private static readonly int gms_code = 9001;
 
@@ -193,7 +194,7 @@ namespace friendcognition.Droid
         private void ConfirmPhoto(object sender, EventArgs e)
         {
 
-            if (DataController.Instance().SavePicture(bitmapPicture))
+            if (DataController.Instance().SavePicture(byteArrayPicture))
             {
                 Intent i = new Intent(this, typeof(CameraActivity));
 
@@ -216,7 +217,7 @@ namespace friendcognition.Droid
 
         public void OnPictureTaken(byte[] data)
         {
-            bitmapPicture = Android.Graphics.BitmapFactory.DecodeByteArray(data, 0, data.Length);
+            byteArrayPicture = data;
             cameraSource.Stop();
             // Data is saved in the bitmapPicture variable, we should store it in the database now
         }
