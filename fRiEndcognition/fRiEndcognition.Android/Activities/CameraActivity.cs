@@ -13,13 +13,14 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using friendcognition.Droid.Camera;
 using Java.Lang;
 using static Android.Gms.Vision.MultiProcessor;
 
 namespace friendcognition.Droid
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class CameraActivity : Activity, IFactory
+    public class CameraActivity : Activity, ICameraStreaming, IFactory
     {
 
         private static readonly string TAG = "friendcognition";
@@ -88,7 +89,7 @@ namespace friendcognition.Droid
             }
         }
 
-        private void CreateCameraSource(CameraFacing cameraFacing)
+        public void CreateCameraSource(CameraFacing cameraFacing)
         {
 
             FaceDetector detector = new FaceDetector.Builder(this).Build();
@@ -108,7 +109,7 @@ namespace friendcognition.Droid
                 .Build();
         }
 
-        private void StartCameraSource()
+        public void StartCameraSource()
         {
 
             // check that the device has play services available.
