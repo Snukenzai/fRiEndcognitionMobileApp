@@ -1,6 +1,0 @@
-Album: FACES
-AlbumKey: 89466ebcb08649760cd9b05azf1a047f8bdfe0fbc033c499d6b982e9ae01f049
-MashapeKey: t3p6dcEpLGmshrMsZhw1rPqfMjRFp1YpSaCjsnlnvNx4Va7w3M
-RecognizeURL: https://lambda-face-recognition.p.mashape.com/recognize
-TrainURL: https://lambda-face-recognition.p.mashape.com/album_train
-RebuildURL: https://lambda-face-recognition.p.mashape.com/album_rebuild?album=FACES&albumkey=40a3d13cc4bca814515dde10f857d7069f1e98df71481ea40d547bae2441c1d7

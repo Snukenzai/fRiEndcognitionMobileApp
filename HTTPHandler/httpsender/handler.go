@@ -1,11 +1,14 @@
 package httpsender
 
 import (
-	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
+	"strconv"
+	"strings"
 
 	"github.com/pkg/errors"
 	yaml "gopkg.in/yaml.v2"
@@ -31,37 +34,104 @@ type RecogniseRequest struct {
 	AlbumKey string `json:"albumkey"`
 	File     []byte `json:"files"`
 }
+type Recognition struct {
+	Status string   `json:"status"`
+	Images []string `json:"images"`
+	Photos []struct {
+		URL   string `json:"url"`
+		Width int    `json:"width"`
+		Tags  []struct {
+			EyeLeft struct {
+				Y int `json:"y"`
+				X int `json:"x"`
+			} `json:"eye_left"`
+			Confidence float64 `json:"confidence"`
+			Center     struct {
+				Y int `json:"y"`
+				X int `json:"x"`
+			} `json:"center"`
+			MouthRight struct {
+				Y float64 `json:"y"`
+				X float64 `json:"x"`
+			} `json:"mouth_right"`
+			MouthLeft struct {
+				Y float64 `json:"y"`
+				X float64 `json:"x"`
+			} `json:"mouth_left"`
+			Height      int `json:"height"`
+			Width       int `json:"width"`
+			MouthCenter struct {
+				Y float64 `json:"y"`
+				X float64 `json:"x"`
+			} `json:"mouth_center"`
+			Nose struct {
+				Y int `json:"y"`
+				X int `json:"x"`
+			} `json:"nose"`
+			EyeRight struct {
+				Y int `json:"y"`
+				X int `json:"x"`
+			} `json:"eye_right"`
+			Tid        string `json:"tid"`
+			Attributes []struct {
+				SmileRating float64 `json:"smile_rating"`
+				Smiling     bool    `json:"smiling"`
+				Confidence  float64 `json:"confidence"`
+			} `json:"attributes"`
+			Uids []struct {
+				Confidence float64 `json:"confidence"`
+				Prediction string  `json:"prediction"`
+				UID        string  `json:"uid"`
+			} `json:"uids"`
+		} `json:"tags"`
+		Height int `json:"height"`
+	} `json:"photos"`
+}
 
 func TrainHandler(w http.ResponseWriter, r *http.Request) {
-	ConfigInst, err := LoadConfigFile("config.yaml")
+	if r.Body == nil {
+		log.Fatal("Empty request")
+	}
+
+	ConfigInst, err := LoadConfigFile("./httpsender/config.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
 	var req TrainRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-		log.Println("Cannot decode request JSON")
+		log.Fatal("Cannot decode request JSON")
 	}
 	req.Album = ConfigInst.Album
 	req.AlbumKey = ConfigInst.AlbumKey
 
-	jsonValue, err := json.Marshal(req)
-	if err != nil {
-		log.Println("Cannot marshal to JSON")
-	}
-	resp, err := Send(*ConfigInst, "POST", bytes.NewBuffer(jsonValue), ConfigInst.TrainURL)
-	if err != nil {
-		w.Write([]byte("ERROR" + string(resp.StatusCode)))
+	fmt.Println(req)
+
+	data := url.Values{}
+	data.Set("album", req.Album)
+	data.Add("albumkey", req.AlbumKey)
+	data.Add("entryid", req.EntryID)
+	data.Add("files", string(req.File))
+
+	fmt.Println(strings.NewReader(data.Encode()))
+	resp, err := Send(*ConfigInst, "POST", strings.NewReader(data.Encode()), ConfigInst.TrainURL)
+	if err != nil && resp.StatusCode != 200 {
+		w.Write([]byte(strconv.Itoa(resp.StatusCode)))
 	} else {
-		w.Write([]byte("Status OK" + string(resp.StatusCode)))
+		w.Write([]byte(strconv.Itoa(resp.StatusCode)))
 	}
+	resp.Body.Close()
 	Rebuild(*ConfigInst)
 
 }
 func RecHandler(w http.ResponseWriter, r *http.Request) {
-	ConfigInst, err := LoadConfigFile("config.yaml")
+	if r.Body == nil {
+		log.Fatal("Empty request")
+	}
+	ConfigInst, err := LoadConfigFile("./config.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	var req RecogniseRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		log.Println("Cannot decode request JSON")
@@ -69,16 +139,31 @@ func RecHandler(w http.ResponseWriter, r *http.Request) {
 	req.Album = ConfigInst.Album
 	req.AlbumKey = ConfigInst.AlbumKey
 
-	jsonValue, err := json.Marshal(req)
-	if err != nil {
-		log.Println("Cannot marshal to JSON")
-	}
-	resp, err := Send(*ConfigInst, "POST", bytes.NewBuffer(jsonValue), ConfigInst.RecognizeURL)
-	if err != nil {
-		w.Write([]byte("ERROR" + string(resp.StatusCode)))
+	data := url.Values{}
+	data.Set("album", req.Album)
+	data.Add("albumkey", req.AlbumKey)
+	data.Add("files", string(req.File))
+
+	resp, err := Send(*ConfigInst, "POST", strings.NewReader(data.Encode()), ConfigInst.RecognizeURL)
+	defer resp.Body.Close()
+	if err != nil || resp.StatusCode != 200 {
+		w.Write([]byte("ERROR " + string(resp.StatusCode)))
 	} else {
-		w.Write([]byte("Status OK" + string(resp.StatusCode)))
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			w.Write([]byte("Failed to read from response body stream"))
+		}
+
+		var respObject Recognition
+		err = json.Unmarshal(body, &respObject)
+		if err != nil {
+			w.Write([]byte("Failed to decode response JSON"))
+		} else {
+			id, proc := FindID(respObject)
+			w.Write([]byte(id + " " + proc))
+		}
 	}
+	defer resp.Body.Close()
 
 }
 func LoadConfigFile(path string) (*Config, error) {
@@ -94,4 +179,20 @@ func LoadConfigFile(path string) (*Config, error) {
 	}
 
 	return &config, nil
+}
+
+func FindID(resp Recognition) (string, string) {
+	max := strconv.Itoa(0)
+	var ID string
+	for i := 0; i < len(resp.Photos); i++ {
+		for j := 0; j < len(resp.Photos[i].Tags); j++ {
+			for _, UID := range resp.Photos[i].Tags[j].Uids {
+				if UID.Prediction > max {
+					max = UID.Prediction
+					ID = UID.UID
+				}
+			}
+		}
+	}
+	return ID, max
 }
