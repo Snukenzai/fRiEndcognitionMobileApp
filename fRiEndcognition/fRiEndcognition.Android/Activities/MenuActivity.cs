@@ -21,29 +21,25 @@ namespace friendcognition.Droid
             SetContentView(Resource.Layout.Menu);
 
             Button logout = FindViewById<Button>(Resource.Id.logoutButton);
-            logout.Click += OpenMain;
+            logout.Click += delegate (object sender, EventArgs e)
+            {
+                Intent i = new Intent(this, typeof(MainActivity));
+                StartActivity(i);
+            }; 
 
             Button profile = FindViewById<Button>(Resource.Id.profileButton);
-            profile.Click += OpenProfile;
+            profile.Click += delegate (object sender, EventArgs e)
+            {
+                Intent i = new Intent(this, typeof(ProfileActivity));
+                StartActivity(i);
+            };
 
             Button camera = FindViewById<Button>(Resource.Id.cameraButton);
-            camera.Click += OpenCamera;
-        }
-        private void OpenProfile(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(ProfileActivity));
-            StartActivity(i);
-        }
-        private void OpenMain(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(MainActivity));
-            StartActivity(i);
-        }
-        private void OpenCamera(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(CameraActivity));
-            StartActivity(i);
-
+            camera.Click += delegate (object sender, EventArgs e)
+            {
+                Intent i = new Intent(this, typeof(CameraActivity));
+                StartActivity(i);
+            };
         }
     }
 }

@@ -37,8 +37,29 @@ namespace friendcognition.Droid
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
             ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
-            menu.Click += OpenMenu;
-            changeCamera.Click += ChangeCameraFacing;
+
+            menu.Click += delegate(object sender, EventArgs e) 
+            {
+                Intent i = new Intent(this, typeof(MenuActivity));
+                StartActivity(i);
+            };
+
+            changeCamera.Click += delegate(object sender, EventArgs e) 
+            {
+                if (cameraSource != null)
+                {
+                    cameraSource.Release();
+                    if (cameraSource.CameraFacing == CameraFacing.Back)
+                    {
+                        CreateCameraSource(CameraFacing.Front);
+                    }
+                    else
+                    {
+                        CreateCameraSource(CameraFacing.Back);
+                    }
+                    StartCameraSource();
+                }
+            };
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
@@ -46,29 +67,6 @@ namespace friendcognition.Droid
             CreateCameraSource(CameraFacing.Back);
 
         }
-        private void OpenMenu(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(MenuActivity));
-            StartActivity(i);
-        }
-
-        private void ChangeCameraFacing(object sender, EventArgs e)
-        {
-            if (cameraSource != null)
-            {
-                cameraSource.Release();
-                if (cameraSource.CameraFacing == CameraFacing.Back)
-                {
-                    CreateCameraSource(CameraFacing.Front);
-                }
-                else
-                {
-                    CreateCameraSource(CameraFacing.Back);
-                }
-                StartCameraSource();
-            }
-        }
-
         protected override void OnResume()
         {
             base.OnResume();

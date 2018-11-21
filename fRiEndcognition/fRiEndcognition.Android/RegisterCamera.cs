@@ -82,15 +82,6 @@ namespace friendcognition.Droid
             }
         }
 
-        /*
-        private void OpenMenu(object sender, EventArgs e)
-        {
-            StateControllerInstance.SetCameraType(cameraType);
-            Intent i = new Intent(this, typeof(Menu));
-            StartActivity(i);
-        }
-        */
-
         private void ChangeCameraFacing(object sender, EventArgs e)
         {
             if (cameraSource != null)
