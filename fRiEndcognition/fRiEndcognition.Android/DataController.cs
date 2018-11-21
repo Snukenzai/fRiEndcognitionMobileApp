@@ -71,24 +71,20 @@ namespace friendcognition.Droid
         {
             if (!ValidateEmail(email))
             {
-                //MessageBox.Show(Constants.WRONG_EMAIL);
                 return RegistrationCallbacks.INVALID_EMAIL;
             }
 
             if (loginInfo.ContainsKey(email))
             {
-                //MessageBox.Show(Constants.EMAIL_ALREADY_EXISTS);
                 return RegistrationCallbacks.EMAIL_EXISTS;
             }
 
             if (!ValidateStringOnlyLetters(name))
             {
-                //MessageBox.Show(Constants.INVALID_NAME);
                 return RegistrationCallbacks.INVALID_NAME;
             }
             if (!ValidateStringOnlyLetters(name))
             {
-                //MessageBox.Show(Constants.INVALID_SURNAME);
                 return RegistrationCallbacks.INVALID_SURNAME;
             }
 

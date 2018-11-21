@@ -47,10 +47,60 @@ namespace friendcognition.Droid
             declinePhoto = FindViewById<ImageButton>(Resource.Id.DeclinePhoto);
             confirmPhoto = FindViewById<ImageButton>(Resource.Id.ConfirmPhoto);
             //menu.Click += OpenMenu; <--- for now, let's stay without menu for Register Camera
-            changeCamera.Click += ChangeCameraFacing;
-            takePhoto.Click += TakePhoto;
+            changeCamera.Click += delegate (object sender, EventArgs e)
+            {
+                if (cameraSource != null)
+                {
+                    cameraSource.Release();
+                    if (cameraSource.CameraFacing == CameraFacing.Back)
+                    {
+                        CreateCameraSource(CameraFacing.Front);
+                    }
+                    else
+                    {
+                        CreateCameraSource(CameraFacing.Back);
+                    }
+                    StartCameraSource();
+                }
+            };
+            takePhoto.Click += delegate (object sender, EventArgs e)
+            {
+                try
+                {
+                    cameraSource.TakePicture(null, this);
+                    //cameraSource.Stop(); <--- just dont do it, dont stop it too early, he's to young to die and the whole program just goes nuts
+                    takePhoto.Visibility = ViewStates.Gone;
+                    changeCamera.Visibility = ViewStates.Gone;
+                    declinePhoto.Visibility = ViewStates.Visible;
+                    confirmPhoto.Visibility = ViewStates.Visible;
+                }
+                catch (Exception ex)
+                {
+                    Toast.MakeText(ApplicationContext, "Error: " + ex.ToString(), ToastLength.Long).Show();
+                }
+            };
             declinePhoto.Click += DeclinePhoto;
-            confirmPhoto.Click += ConfirmPhoto;
+            confirmPhoto.Click += delegate (object sender, EventArgs e)
+            {
+                if (DataController.Instance.SavePicture(bitmapPicture))
+                {
+                    Intent i = new Intent(this, typeof(CameraActivity));
+
+                    if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                    {
+                        ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                    }
+                    else
+                    {
+                        StartActivity(i);
+                    }
+                }
+                else
+                {
+                    DeclinePhoto(null, null);
+                    Toast.MakeText(ApplicationContext, "Error: picture failed to be saved...", ToastLength.Long).Show();
+                }
+            };
 
 
             // vvv hide the unwanted buttons
@@ -63,42 +113,8 @@ namespace friendcognition.Droid
 
             CreateCameraSource(CameraFacing.Back);
 
-        }
-
-        private void TakePhoto(object sender, EventArgs e)
-        {
-            try
-            {
-                cameraSource.TakePicture(null, this);
-                //cameraSource.Stop(); <--- just dont do it, dont stop it too early, he's to young to die and the whole program just goes nuts
-                takePhoto.Visibility = ViewStates.Gone;
-                changeCamera.Visibility = ViewStates.Gone;
-                declinePhoto.Visibility = ViewStates.Visible;
-                confirmPhoto.Visibility = ViewStates.Visible;
-            }
-            catch(Exception ex)
-            {
-                Toast.MakeText(ApplicationContext, "Error: " + ex.ToString(), ToastLength.Long).Show();
-            }
-        }
-
-        private void ChangeCameraFacing(object sender, EventArgs e)
-        {
-            if (cameraSource != null)
-            {
-                cameraSource.Release();
-                if (cameraSource.CameraFacing == CameraFacing.Back)
-                {
-                    CreateCameraSource(CameraFacing.Front);
-                }
-                else
-                {
-                    CreateCameraSource(CameraFacing.Back);
-                }
-                StartCameraSource();
-            }
-        }
-
+        }      
+   
         protected override void OnResume()
         {
             base.OnResume();
@@ -179,30 +195,6 @@ namespace friendcognition.Droid
             confirmPhoto.Visibility = ViewStates.Gone;
             StartCameraSource();
         }
-
-        private void ConfirmPhoto(object sender, EventArgs e)
-        {
-
-            if (DataController.Instance.SavePicture(bitmapPicture))
-            {
-                Intent i = new Intent(this, typeof(CameraActivity));
-
-                if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
-                {
-                    ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
-                }
-                else
-                {
-                    StartActivity(i);
-                }
-            }
-            else
-            {
-                DeclinePhoto(null, null);
-                Toast.MakeText(ApplicationContext, "Error: picture failed to be saved...", ToastLength.Long).Show();
-            }
-        }
-
 
         public void OnPictureTaken(byte[] data)
         {
