@@ -4,5 +4,6 @@
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <ProjectView>ProjectFiles</ProjectView>
+    <SelectedDevice>OnePlus A3010</SelectedDevice>
   </PropertyGroup>
 </Project>

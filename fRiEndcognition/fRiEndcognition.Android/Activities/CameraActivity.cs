@@ -20,7 +20,7 @@ using static Android.Gms.Vision.MultiProcessor;
 namespace friendcognition.Droid
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class CameraActivity : Activity, ICameraStreaming, IFactory
+    public class CameraActivity : Activity, ICameraStreaming, IFactory, View.IOnTouchListener
     {
 
         private static readonly string TAG = "friendcognition";
@@ -67,6 +67,7 @@ namespace friendcognition.Droid
 
             CreateCameraSource(CameraFacing.Back);
 
+            graphicOverlay.SetOnTouchListener(this);
         }
         protected override void OnResume()
         {
@@ -87,6 +88,23 @@ namespace friendcognition.Droid
             {
                 cameraSource.Release();
             }
+        }
+
+        public bool OnTouch(View v, MotionEvent e)
+        {
+            float x = e.GetX();
+            float y = e.GetY();
+
+            if (e.Action == MotionEventActions.Down)
+            {
+                DataController.Instance().TouchEventDown(x, y);
+            }
+            else if (e.Action == MotionEventActions.Up)
+            {
+                DataController.Instance().TouchEventUp();
+            }
+
+            return true;
         }
 
         public void CreateCameraSource(CameraFacing cameraFacing)

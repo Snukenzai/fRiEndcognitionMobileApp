@@ -26,6 +26,10 @@ namespace friendcognition.Droid
         private volatile Face mFace;
         private int mFaceId;
 
+        private bool touching = false;
+        private float x, y;
+        private float left, right, top, bottom;
+
         public FaceGraphic(GraphicOverlay overlay) : base(overlay)
         {
             var selectedColor = Color.Blue;
@@ -51,6 +55,24 @@ namespace friendcognition.Droid
             mFaceId = id;
         }
 
+        public void checkIfTouching()
+        {
+            touching = DataController.Instance().getTouching();
+            if (touching == true)
+            {
+                x = DataController.Instance().getX();
+                y = DataController.Instance().getY();
+
+                if (x > left && x < right && y > top && y < bottom)
+                {
+                    DataController.Instance().id = mFaceId;
+                    Intent i = new Intent(Application.Context, typeof(ProfileActivity));
+                    Application.Context.StartActivity(i);
+                }
+
+                touching = false;
+            }
+        }
 
         /**
          * Updates the face instance from the detection of the most recent frame.  Invalidates the
@@ -60,6 +82,7 @@ namespace friendcognition.Droid
         {
             mFace = face;
             PostInvalidate();
+            checkIfTouching();
         }
 
         public override void Draw(Canvas canvas)
@@ -76,10 +99,10 @@ namespace friendcognition.Droid
             // Draws a bounding box around the face.
             float xOffset = ScaleX(face.Width / 2.0f);
             float yOffset = ScaleY(face.Height / 2.0f);
-            float left = x - xOffset;
-            float top = y - yOffset;
-            float right = x + xOffset;
-            float bottom = y + yOffset;
+            left = x - xOffset;
+            top = y - yOffset;
+            right = x + xOffset;
+            bottom = y + yOffset;
             canvas.DrawRect(left, top, right, bottom, mBoxPaint);
         }
     }

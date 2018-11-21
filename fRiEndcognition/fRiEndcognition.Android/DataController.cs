@@ -25,6 +25,10 @@ namespace friendcognition.Droid
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
 
+        private bool touching = false;
+        private float x, y;
+        public int id { get; set; }
+
         DataController()
         {
         }
@@ -36,7 +40,7 @@ namespace friendcognition.Droid
 
         public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)
         {
-            byte[] byteArrayPicture = BitmapToByteArray(bitmapPicture);
+           // byte[] byteArrayPicture = BitmapToByteArray(bitmapPicture);
             // TO BE IMPLEMENTED, THE DATABASE LOGIC
 
             return true;
@@ -125,6 +129,31 @@ namespace friendcognition.Droid
             {
                 return false;
             }
+        }
+
+        public void TouchEventDown(float x, float y)
+        {
+            this.x = x;
+            this.y = y;
+            touching = true;
+        }
+
+        public void TouchEventUp()
+        {
+            touching = false;
+        }
+
+        public float getX()
+        {
+            return x;
+        }
+        public float getY()
+        {
+            return y;
+        }
+        public bool getTouching()
+        {
+            return touching;
         }
     }
 }

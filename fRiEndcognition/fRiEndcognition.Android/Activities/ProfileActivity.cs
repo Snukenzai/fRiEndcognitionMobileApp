@@ -15,10 +15,32 @@ namespace friendcognition.Droid
     [Activity(Label = "ProfileActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class ProfileActivity : Activity
     {
+
+        private TextView profileName, profileSurname;
+        private ImageView profileImage;
+        private Button changePicture;
+        private int id, percentage;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Profile);
+
+            profileName = FindViewById<TextView>(Resource.Id.ProfileName);
+            profileSurname = FindViewById<TextView>(Resource.Id.ProfileSurname);
+            profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
+            changePicture = FindViewById<Button>(Resource.Id.changePicture);
+        }
+
+        public void setId(int id, int percentage)
+        {
+            this.id = id;
+            this.percentage = percentage;
+
+            profileSurname.Visibility = ViewStates.Gone;
+
+            string text = string.Format("You're {0}% similar to {1}.", percentage.ToString(), id.ToString());
+            profileName.Text = text;
         }
     }
 }
