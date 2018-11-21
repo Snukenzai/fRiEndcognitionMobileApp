@@ -29,7 +29,7 @@ namespace friendcognition.Droid
             password = FindViewById<EditText>(Resource.Id.LoginPassword);
             loggedIn.Click += delegate (object sender, EventArgs e)
             {
-                if (DataController.Instance.Login(email.Text, password.Text))
+                if (DataController.Instance().Login(email.Text, password.Text))
                 {
                     Intent i = new Intent(this, typeof(CameraActivity));
 

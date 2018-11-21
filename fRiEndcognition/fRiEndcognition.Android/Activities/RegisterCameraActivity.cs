@@ -193,7 +193,7 @@ namespace friendcognition.Droid
         private void ConfirmPhoto(object sender, EventArgs e)
         {
 
-            if (DataController.Instance.SavePicture(bitmapPicture))
+            if (DataController.Instance().SavePicture(bitmapPicture))
             {
                 Intent i = new Intent(this, typeof(CameraActivity));
 

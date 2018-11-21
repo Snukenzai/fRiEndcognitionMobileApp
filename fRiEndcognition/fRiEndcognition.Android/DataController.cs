@@ -20,8 +20,7 @@ namespace friendcognition.Droid
         public const string REGEX_ONLY_LETTERS = @"^[a-zA-Z]+$";
         public const string REGEX_EMAIL = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
-        private static DataController instance = null;
-        private static readonly object padlock = new object();
+        private static readonly Lazy<DataController> lazy = new Lazy<DataController>(() => new DataController());
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
 
@@ -29,19 +28,9 @@ namespace friendcognition.Droid
         {
         }
 
-        public static DataController Instance
+        public static DataController Instance()
         {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new DataController();
-                    }
-                    return instance;
-                }
-            }
+            return lazy.Value;
         }
 
         public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)

@@ -37,7 +37,7 @@ namespace friendcognition.Droid
             Button registered = FindViewById<Button>(Resource.Id.FinalRegister);
             registered.Click += delegate (object sender, EventArgs e)
             {
-                DataController.RegistrationCallbacks callback = DataController.Instance.Register(name.Text, surname.Text, email.Text, password.Text, repeatPassword.Text);
+                DataController.RegistrationCallbacks callback = DataController.Instance().Register(name.Text, surname.Text, email.Text, password.Text, repeatPassword.Text);
 
                 if (callback == DataController.RegistrationCallbacks.PASSED)
                 {
