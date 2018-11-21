@@ -24,26 +24,24 @@ namespace friendcognition.Droid
             SetContentView(Resource.Layout.Main);
 
             Button loginButton = FindViewById<Button>(Resource.Id.LoginB);
-            loginButton.Click += DoLogin;
+            loginButton.Click += delegate(object sender, EventArgs e)
+            {
+                Intent i = new Intent(this, typeof(LoginActivity));
+                StartActivity(i);
+            };
 
             Button registerButton = FindViewById<Button>(Resource.Id.RegisterB);
-            registerButton.Click += DoRegister;
+            registerButton.Click += delegate (object sender, EventArgs e)
+            {
+                Intent i = new Intent(this, typeof(RegisterActivity));
+                StartActivity(i);
+            };
 
             if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
             {
                 ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, camera_code);
             }
 
-        }
-        private void DoLogin(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(LoginActivity));
-            StartActivity(i);
-        }
-        private void DoRegister(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(RegisterActivity));
-            StartActivity(i);
         }
 
         public void onRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

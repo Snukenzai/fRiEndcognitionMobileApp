@@ -13,13 +13,14 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using friendcognition.Droid.Camera;
 using Java.Lang;
 using static Android.Gms.Vision.MultiProcessor;
 
 namespace friendcognition.Droid
 {
     [Activity(Label = "CameraActivity", Theme = "@style/Theme.AppCompat.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class CameraActivity : Activity, IFactory
+    public class CameraActivity : Activity, ICameraStreaming, IFactory
     {
 
         private static readonly string TAG = "friendcognition";
@@ -37,8 +38,29 @@ namespace friendcognition.Droid
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
             ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
-            menu.Click += OpenMenu;
-            changeCamera.Click += ChangeCameraFacing;
+
+            menu.Click += delegate(object sender, EventArgs e) 
+            {
+                Intent i = new Intent(this, typeof(MenuActivity));
+                StartActivity(i);
+            };
+
+            changeCamera.Click += delegate(object sender, EventArgs e) 
+            {
+                if (cameraSource != null)
+                {
+                    cameraSource.Release();
+                    if (cameraSource.CameraFacing == CameraFacing.Back)
+                    {
+                        CreateCameraSource(CameraFacing.Front);
+                    }
+                    else
+                    {
+                        CreateCameraSource(CameraFacing.Back);
+                    }
+                    StartCameraSource();
+                }
+            };
 
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
@@ -46,29 +68,6 @@ namespace friendcognition.Droid
             CreateCameraSource(CameraFacing.Back);
 
         }
-        private void OpenMenu(object sender, EventArgs e)
-        {
-            Intent i = new Intent(this, typeof(MenuActivity));
-            StartActivity(i);
-        }
-
-        private void ChangeCameraFacing(object sender, EventArgs e)
-        {
-            if (cameraSource != null)
-            {
-                cameraSource.Release();
-                if (cameraSource.CameraFacing == CameraFacing.Back)
-                {
-                    CreateCameraSource(CameraFacing.Front);
-                }
-                else
-                {
-                    CreateCameraSource(CameraFacing.Back);
-                }
-                StartCameraSource();
-            }
-        }
-
         protected override void OnResume()
         {
             base.OnResume();
@@ -90,7 +89,7 @@ namespace friendcognition.Droid
             }
         }
 
-        private void CreateCameraSource(CameraFacing cameraFacing)
+        public void CreateCameraSource(CameraFacing cameraFacing)
         {
 
             FaceDetector detector = new FaceDetector.Builder(this).Build();
@@ -110,7 +109,7 @@ namespace friendcognition.Droid
                 .Build();
         }
 
-        private void StartCameraSource()
+        public void StartCameraSource()
         {
 
             // check that the device has play services available.

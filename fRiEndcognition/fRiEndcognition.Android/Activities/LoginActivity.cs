@@ -17,7 +17,6 @@ namespace friendcognition.Droid
     [Activity(Label = "LoginActivity", Theme = "@style/Theme.AppCompat.NoActionBar")]
     public class LoginActivity : Activity
     {
-
         private EditText email;
         private EditText password;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -28,30 +27,26 @@ namespace friendcognition.Droid
             Button loggedIn = FindViewById<Button>(Resource.Id.FinalLogin);
             email = FindViewById<EditText>(Resource.Id.LoginEmail);
             password = FindViewById<EditText>(Resource.Id.LoginPassword);
-            loggedIn.Click += LoggedIn;
-        }
-        private void LoggedIn(object sender, EventArgs e)
-        {
-
-            if (DataController.Instance.Login(email.Text, password.Text))
+            loggedIn.Click += delegate (object sender, EventArgs e)
             {
-                Intent i = new Intent(this, typeof(CameraActivity));
-
-                if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                if (DataController.Instance().Login(email.Text, password.Text))
                 {
-                    ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                    Intent i = new Intent(this, typeof(CameraActivity));
+
+                    if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                    {
+                        ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                    }
+                    else
+                    {
+                        StartActivity(i);
+                    }
                 }
                 else
                 {
-                    StartActivity(i);
+                    Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
                 }
-            }
-            else
-            {
-                Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
-            }
-
-            
+            };
         }
 
         public void onRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
