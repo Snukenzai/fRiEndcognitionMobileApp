@@ -63,7 +63,8 @@
     <Compile Include="Activities\CameraActivity.cs" />
     <Compile Include="Camera\CameraSourcePreview.cs" />
     <Compile Include="Camera\ICameraStreaming.cs" />
-    <Compile Include="DataController.cs" />
+    <Compile Include="Database\DataController.cs" />
+    <Compile Include="HTTP\Sender.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Activities\MenuActivity.cs" />
     <Compile Include="Activities\ProfileActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Recognition\RecognitionController.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
