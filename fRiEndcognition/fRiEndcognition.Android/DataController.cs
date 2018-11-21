@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -23,6 +24,8 @@ namespace friendcognition.Droid
 
         private static readonly Lazy<DataController> lazy = new Lazy<DataController>(() => new DataController());
 
+        private byte[] byteArrayCurrent;
+
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
 
         DataController()
@@ -34,25 +37,38 @@ namespace friendcognition.Droid
             return lazy.Value;
         }
 
-        public bool SavePicture(Android.Graphics.Bitmap bitmapPicture)
+        public bool SavePicture(byte[] byteArrayPicture)
         {
-            byte[] byteArrayPicture = BitmapToByteArray(bitmapPicture);
-            // TO BE IMPLEMENTED, THE DATABASE LOGIC
 
-            return true;
+            if (byteArrayPicture != null)
+            {
+                byteArrayCurrent = byteArrayPicture;
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         
         //Converts Bitmap picture to Byte Array using 
-        public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapPicture)
+        public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapData)
         {
-            byte[] bitmapData;
+            byte[] byteArrayData;
             using (var stream = new MemoryStream())
             {
-                bitmapPicture.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
-                bitmapData = stream.ToArray();
+                bitmapData.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
+                byteArrayData = stream.ToArray();
             }
-            return bitmapData;
+            return byteArrayData;
+        }
+
+        public Android.Graphics.Bitmap ByteArrayToBitmap(byte[] byteArrayData)
+        {
+            return Android.Graphics.BitmapFactory.DecodeByteArray(byteArrayData, 0, byteArrayData.Length);
         }
 
         public bool Login(string email, string password)
