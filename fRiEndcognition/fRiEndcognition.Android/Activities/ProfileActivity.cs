@@ -30,13 +30,14 @@ namespace friendcognition.Droid
             profileSurname = FindViewById<TextView>(Resource.Id.ProfileSurname);
             profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
             changePicture = FindViewById<Button>(Resource.Id.changePicture);
+            setId();
         }
 
-        public void setId(string text)
+        public void setId()
         {
             profileSurname.Visibility = ViewStates.Gone;
 
-            profileName.Text = text;
+            profileName.Text = DataController.Instance().name;
         }
     }
 }

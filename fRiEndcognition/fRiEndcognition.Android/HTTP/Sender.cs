@@ -26,14 +26,16 @@ namespace friendcognition.Droid.HTTP
             return httpWebRequest;
         }
 
-        public static HttpWebResponse getResponse(HttpWebRequest httpWebRequest)
+        public static string getResponse(HttpWebRequest httpWebRequest)
         {
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            using (var response = (HttpWebResponse)httpWebRequest.GetResponse())
             {
-                var result = streamReader.ReadToEnd();
+                var encoding = Encoding.GetEncoding(response.CharacterSet);
+
+                using (var responseStream = response.GetResponseStream())
+                using (var reader = new StreamReader(responseStream, encoding))
+                    return reader.ReadToEnd();
             }
-            return httpResponse;
         }
     }
 }

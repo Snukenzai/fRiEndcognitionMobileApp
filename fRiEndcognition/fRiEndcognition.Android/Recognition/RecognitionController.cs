@@ -23,7 +23,8 @@ namespace friendcognition.Droid.Recognition
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("files: ", pic, "entryid: ", DataController.Instance().name);
+                string picnebute = "https://www.golf.com/wp-content/uploads/2018/09/tiger-woods-tour-championship.jpg";
+                streamWriter.Write("{\"urls\": \""+ picnebute + "\", \"entryid\": \""+ DataController.Instance().name + "\"}");
             }
 
             var response = Sender.getResponse(httpWebRequest);
@@ -35,12 +36,13 @@ namespace friendcognition.Droid.Recognition
             var httpWebRequest = Sender.createRequestHandler("POST", "rec");
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("files: ", pic);
+                string picnebute = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Tiger_Woods_2018.jpg/220px-Tiger_Woods_2018.jpg";
+                streamWriter.Write("{\"urls\": \"" + picnebute + "\"}");
             }
 
-            var response = Sender.getResponse(httpWebRequest);
+            string response = Sender.getResponse(httpWebRequest);
 
-            return response.ToString();
+            return response;
 
         }
 }

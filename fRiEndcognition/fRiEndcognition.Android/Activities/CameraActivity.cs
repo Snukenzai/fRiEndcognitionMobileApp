@@ -97,6 +97,7 @@ namespace friendcognition.Droid
 
             if (e.Action == MotionEventActions.Down)
             {
+                cameraSource.TakePicture(null, this);
                 DataController.Instance().TouchEventDown(x, y);
             }
             else if (e.Action == MotionEventActions.Up)
@@ -162,7 +163,7 @@ namespace friendcognition.Droid
         {
             byteArrayPicture = data;
             string result = Recognition.RecognitionController.RecognisePic(byteArrayPicture);
-
+            DataController.Instance().name = result;
         }
     }
 }
