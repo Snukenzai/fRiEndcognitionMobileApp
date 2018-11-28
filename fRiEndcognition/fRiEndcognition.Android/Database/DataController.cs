@@ -6,11 +6,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
+using Android.Net;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using friendcognition.Droid.HTTP;
+using Plugin.Connectivity;
 
 namespace friendcognition.Droid
 {
@@ -225,7 +228,5 @@ namespace friendcognition.Droid
 
             //need to handle response
         }
-
-
     }
 }

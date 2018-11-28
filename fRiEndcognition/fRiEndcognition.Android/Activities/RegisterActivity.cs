@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Plugin.Connectivity;
 
 namespace friendcognition.Droid
 {
@@ -37,48 +38,53 @@ namespace friendcognition.Droid
             Button registered = FindViewById<Button>(Resource.Id.FinalRegister);
             registered.Click += delegate (object sender, EventArgs e)
             {
-                DataController.RegistrationCallbacks callback = DataController.Instance().Register(name.Text, surname.Text, email.Text, password.Text, repeatPassword.Text);
-
-                if (callback == DataController.RegistrationCallbacks.PASSED)
+                if (CrossConnectivity.Current.IsConnected)
                 {
-                    Intent i = new Intent(this, typeof(RegisterCamera));
+                    DataController.RegistrationCallbacks callback = DataController.Instance().Register(name.Text, surname.Text, email.Text, password.Text, repeatPassword.Text);
 
-                    if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                    if (callback == DataController.RegistrationCallbacks.PASSED)
                     {
-                        ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                        Intent i = new Intent(this, typeof(RegisterCamera));
+
+                        if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                        {
+                            ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                        }
+                        else
+                        {
+                            StartActivity(i);
+                        }
                     }
                     else
                     {
-                        StartActivity(i);
+                        switch (callback)
+                        {
+                            case DataController.RegistrationCallbacks.EMAIL_EXISTS:
+                                Toast.MakeText(ApplicationContext, Resource.String.EMAIL_ALREADY_EXISTS, ToastLength.Long).Show();
+                                break;
+                            case DataController.RegistrationCallbacks.INVALID_NAME:
+                                Toast.MakeText(ApplicationContext, Resource.String.INVALID_NAME, ToastLength.Long).Show();
+                                break;
+                            case DataController.RegistrationCallbacks.INVALID_SURNAME:
+                                Toast.MakeText(ApplicationContext, Resource.String.INVALID_SURNAME, ToastLength.Long).Show();
+                                break;
+                            case DataController.RegistrationCallbacks.INVALID_EMAIL:
+                                Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
+                                break;
+                            case DataController.RegistrationCallbacks.INVALID_PASSWORD:
+                                Toast.MakeText(ApplicationContext, Resource.String.INVALID_PASSWORD, ToastLength.Long).Show();
+                                break;
+                            case DataController.RegistrationCallbacks.USER_EXISTS:
+                                Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
+                                break;
+                            default:
+                                Toast.MakeText(ApplicationContext, Resource.String.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
+                                break;
+                        }
                     }
                 }
                 else
-                {
-                    switch (callback)
-                    {
-                        case DataController.RegistrationCallbacks.EMAIL_EXISTS:
-                            Toast.MakeText(ApplicationContext, Resource.String.EMAIL_ALREADY_EXISTS, ToastLength.Long).Show();
-                            break;
-                        case DataController.RegistrationCallbacks.INVALID_NAME:
-                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_NAME, ToastLength.Long).Show();
-                            break;
-                        case DataController.RegistrationCallbacks.INVALID_SURNAME:
-                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_SURNAME, ToastLength.Long).Show();
-                            break;
-                        case DataController.RegistrationCallbacks.INVALID_EMAIL:
-                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
-                            break;
-                        case DataController.RegistrationCallbacks.INVALID_PASSWORD:
-                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_PASSWORD, ToastLength.Long).Show();
-                            break;
-                        case DataController.RegistrationCallbacks.USER_EXISTS:
-                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
-                            break;
-                        default:
-                            Toast.MakeText(ApplicationContext, Resource.String.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
-                            break;
-                    }
-                }
+                    Toast.MakeText(ApplicationContext, Resource.String.NO_INTERNET_CONNECTION, ToastLength.Long).Show();
             };
         }
 

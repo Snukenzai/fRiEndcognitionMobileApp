@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Plugin.Connectivity;
 
 namespace friendcognition.Droid
 {
@@ -29,23 +30,28 @@ namespace friendcognition.Droid
             password = FindViewById<EditText>(Resource.Id.LoginPassword);
             loggedIn.Click += delegate (object sender, EventArgs e)
             {
-                if (DataController.Instance().Login(email.Text, password.Text))
+                if (CrossConnectivity.Current.IsConnected)
                 {
-                    Intent i = new Intent(this, typeof(CameraActivity));
-
-                    if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                    if (DataController.Instance().Login(email.Text, password.Text))
                     {
-                        ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                        Intent i = new Intent(this, typeof(CameraActivity));
+
+                        if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
+                        {
+                            ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.Camera }, 10);
+                        }
+                        else
+                        {
+                            StartActivity(i);
+                        }
                     }
                     else
                     {
-                        StartActivity(i);
+                        Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
                     }
                 }
                 else
-                {
-                    Toast.MakeText(ApplicationContext, Resource.String.WRONG_EMAIL_OR_PASSWORD, ToastLength.Long).Show();
-                }
+                    Toast.MakeText(ApplicationContext, Resource.String.NO_INTERNET_CONNECTION, ToastLength.Long).Show();
             };
         }
 
