@@ -32,11 +32,10 @@ namespace friendcognition.Droid
 
         private bool touching = false;
         private float x, y;
-        public int id { get; set; }
+        public int id;
+
         public string name { get; set; }
-        public string surname { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+
 
         DataController()
         {
@@ -83,17 +82,17 @@ namespace friendcognition.Droid
 
         public bool Login(string email, string password)
         {
-            //if (!loginInfo.ContainsKey(email))
-            //{
-            //    return false;
-            //}
+            if (!loginInfo.ContainsKey(email))
+            {
+                return false;
+            }
 
-            //if (loginInfo[email].Equals(password))
-            //{
-            //    return true;
-            //}
+            if (loginInfo[email].Equals(password))
+            {
+                return true;
+            }
 
-            return true;
+            return false;
         }
 
         public RegistrationCallbacks Register(string name, string surname, string email, string password, string repeatPassword)
@@ -195,11 +194,13 @@ namespace friendcognition.Droid
                 streamWriter.Write("{\"email\": \"" + email + "\"}");
             }
 
-            var response = Sender.getResponse(httpWebRequest);
 
-            System.IO.File.WriteAllText(@"C:\Users\Gytis\Desktop\Response.txt", response.ToString());
+            /// this line freezes the app if there's no response
+            //var response = Sender.getResponse(httpWebRequest);
 
-            return true;
+            //System.IO.File.WriteAllText(@"C:\Users\Gytis\Desktop\Response.txt", response.ToString());
+
+            return false;
         }
 
         public void UploadToDatabase()
@@ -212,7 +213,9 @@ namespace friendcognition.Droid
                 streamWriter.Write(currentPerson.ToJSON());
             }
 
-            var response = Sender.getResponse(httpWebRequest);
+
+            // no database, so no responses, thus freezes vvvvv
+            //var response = Sender.getResponse(httpWebRequest);
 
             //need to handle response
         }

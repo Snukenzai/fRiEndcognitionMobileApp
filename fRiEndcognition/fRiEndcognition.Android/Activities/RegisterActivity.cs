@@ -42,10 +42,6 @@ namespace friendcognition.Droid
                 if (callback == DataController.RegistrationCallbacks.PASSED)
                 {
                     Intent i = new Intent(this, typeof(RegisterCamera));
-                    DataController.Instance().name = name.Text;
-                    DataController.Instance().surname = surname.Text;
-                    DataController.Instance().email = email.Text;
-                    DataController.Instance().password = password.Text;
 
                     if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
                     {
