@@ -7,31 +7,21 @@
 	<ImageView
 		android:src="@drawable/IMG_0696"
 		android:layout_marginTop="100.0dp"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:adjustViewBounds="true" 
-		android:scaleType="fitCenter"  
-	    android:maxWidth="250dp"  
-		android:maxHeight="250dp"  
+		android:layout_width="300dp"
+		android:layout_height="300dp"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter"
+		android:maxWidth="300dp"
+		android:maxHeight="300dp"
+		android:layout_gravity = "center"
 		android:id="@+id/ProfileImage" />
 	<TextView
 		android:text="Name"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_marginTop="20.0dp"
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_gravity = "center"
 		android:id="@+id/ProfileName" />
-	<TextView
-		android:text="Surname"
-		android:textAppearance="?android:attr/textAppearanceMedium"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/ProfileSurname" />
-	<Button
-		android:text="Upload profile picture"
-		android:layout_width="250.0dp"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:id="@+id/changePicture" />
 
 </LinearLayout>

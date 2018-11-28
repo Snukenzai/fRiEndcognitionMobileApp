@@ -16,10 +16,11 @@ namespace friendcognition.Droid
     public class ProfileActivity : Activity
     {
 
-        private TextView profileName, profileSurname;
+        private TextView profileName;
         private ImageView profileImage;
         private Button changePicture;
         private int id, percentage;
+        private Person currentPerson;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,17 +28,18 @@ namespace friendcognition.Droid
             SetContentView(Resource.Layout.Profile);
 
             profileName = FindViewById<TextView>(Resource.Id.ProfileName);
-            profileSurname = FindViewById<TextView>(Resource.Id.ProfileSurname);
             profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
-            changePicture = FindViewById<Button>(Resource.Id.changePicture);
+            currentPerson = DataController.Instance().currentPerson;
             setId();
         }
 
         public void setId()
         {
-            profileSurname.Visibility = ViewStates.Gone;
 
-            profileName.Text = DataController.Instance().name;
+            //profileName.Text = DataController.Instance().name;
+
+            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
+            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(currentPerson.Picture));
         }
     }
 }
