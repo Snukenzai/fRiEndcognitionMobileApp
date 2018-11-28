@@ -211,7 +211,7 @@ namespace friendcognition.Droid
             byteArrayPicture = data;
             cameraSource.Stop();
 
-            Recognition.RecognitionController.TrainAlbum(byteArrayPicture);
+            //Recognition.RecognitionController.TrainAlbum(byteArrayPicture);
         }
     }
 }
