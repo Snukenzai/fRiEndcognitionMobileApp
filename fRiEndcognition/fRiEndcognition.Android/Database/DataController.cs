@@ -10,13 +10,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using friendcognition.Droid.HTTP;
 
 namespace friendcognition.Droid
 {
     class DataController
     {
 
-        public enum RegistrationCallbacks { INVALID_NAME, INVALID_SURNAME, INVALID_EMAIL, INVALID_PASSWORD, EMAIL_EXISTS, PASSED}
+        public enum RegistrationCallbacks { INVALID_NAME, INVALID_SURNAME, INVALID_EMAIL, INVALID_PASSWORD, EMAIL_EXISTS, PASSED, USER_EXISTS}
 
         public const string REGEX_ONLY_LETTERS = @"^[a-zA-Z]+$";
         public const string REGEX_EMAIL = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
@@ -31,6 +32,9 @@ namespace friendcognition.Droid
         private float x, y;
         public int id { get; set; }
         public string name { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
 
         DataController()
         {
@@ -74,18 +78,17 @@ namespace friendcognition.Droid
 
         public bool Login(string email, string password)
         {
-            if (!loginInfo.ContainsKey(email))
-            {
-                return false;
-            }
+            //if (!loginInfo.ContainsKey(email))
+            //{
+            //    return false;
+            //}
 
-            if (loginInfo[email].Equals(password))
-            {
-                return true;
-            }
+            //if (loginInfo[email].Equals(password))
+            //{
+            //    return true;
+            //}
 
             return false;
-
         }
 
         public RegistrationCallbacks Register(string name, string surname, string email, string password, string repeatPassword)
@@ -122,13 +125,17 @@ namespace friendcognition.Droid
 
         private bool ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, REGEX_EMAIL))
+            if (!Regex.IsMatch(email, REGEX_EMAIL))
             {
-                return true;
+                return false;
+            }
+            else if (EmailExists(email))
+            {
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -168,5 +175,43 @@ namespace friendcognition.Droid
         {
             return touching;
         }
+
+        private bool EmailExists(string email)
+        {
+
+            var httpWebRequest = Sender.createRequestHandler("POST", "email");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\"}");
+            }
+
+            var response = Sender.getResponse(httpWebRequest);
+
+            System.IO.File.WriteAllText(@"C:\Users\Gytis\Desktop\Response.txt", response.ToString());
+
+            return true;
+        }
+
+        public static void UploadDatabase()
+        {
+
+            var httpWebRequest = Sender.createRequestHandler("POST", "database");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"name\": \"" + DataController.Instance().name + 
+                    "\", \"surname\": \"" + DataController.Instance().surname + 
+                    "\", \"email\": \"" + DataController.Instance().email + 
+                    "\", \"password\": \"" + DataController.Instance().password +
+                    "\", \"picture\": \"" + DataController.Instance().byteArrayCurrent + "\"}");
+            }
+
+            var response = Sender.getResponse(httpWebRequest);
+
+            //need to handle response
+        }
+
+
     }
 }
