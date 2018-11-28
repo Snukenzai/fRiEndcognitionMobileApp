@@ -10,27 +10,34 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using friendcognition.Droid.HTTP;
 
 namespace friendcognition.Droid
 {
     class DataController
     {
 
-        public enum RegistrationCallbacks { INVALID_NAME, INVALID_SURNAME, INVALID_EMAIL, INVALID_PASSWORD, EMAIL_EXISTS, PASSED}
+        public enum RegistrationCallbacks { INVALID_NAME, INVALID_SURNAME, INVALID_EMAIL, INVALID_PASSWORD, EMAIL_EXISTS, PASSED, USER_EXISTS}
 
         public const string REGEX_ONLY_LETTERS = @"^[a-zA-Z]+$";
         public const string REGEX_EMAIL = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
+        public Person currentPerson;
 
         private static readonly Lazy<DataController> lazy = new Lazy<DataController>(() => new DataController());
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
 
+        public Dictionary<string, Person> personList = new Dictionary<string, Person>();
+
         private byte[] byteArrayCurrent;
 
         private bool touching = false;
         private float x, y;
-        public int id { get; set; }
+        public int id;
+
         public string name { get; set; }
+
 
         DataController()
         {
@@ -46,6 +53,9 @@ namespace friendcognition.Droid
             if (byteArrayPicture != null)
             {
                 byteArrayCurrent = byteArrayPicture;
+                currentPerson.Picture = byteArrayCurrent;
+                Instance().UploadToDatabase();
+
                 return true;
             }
             else
@@ -85,7 +95,6 @@ namespace friendcognition.Droid
             }
 
             return false;
-
         }
 
         public RegistrationCallbacks Register(string name, string surname, string email, string password, string repeatPassword)
@@ -116,19 +125,31 @@ namespace friendcognition.Droid
 
             loginInfo.Add(email, password);
 
+            
+
+            // If all the checks are passed, create a new Person object
+
+            currentPerson = new Person(name, surname, email, password);
+
+            personList.Add(email, currentPerson);
+
             return RegistrationCallbacks.PASSED;
 
         }
 
         private bool ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, REGEX_EMAIL))
+            if (!Regex.IsMatch(email, REGEX_EMAIL))
             {
-                return true;
+                return false;
+            }
+            else if (EmailExists(email))
+            {
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -168,5 +189,43 @@ namespace friendcognition.Droid
         {
             return touching;
         }
+
+        private bool EmailExists(string email)
+        {
+
+            var httpWebRequest = Sender.createRequestHandler("POST", "email");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\"}");
+            }
+
+
+            /// this line freezes the app if there's no response
+            //var response = Sender.getResponse(httpWebRequest);
+
+            //System.IO.File.WriteAllText(@"C:\Users\Gytis\Desktop\Response.txt", response.ToString());
+
+            return false;
+        }
+
+        public void UploadToDatabase()
+        {
+
+            var httpWebRequest = Sender.createRequestHandler("POST", "database");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(currentPerson.ToJSON());
+            }
+
+
+            // no database, so no responses, thus freezes vvvvv
+            //var response = Sender.getResponse(httpWebRequest);
+
+            //need to handle response
+        }
+
+
     }
 }

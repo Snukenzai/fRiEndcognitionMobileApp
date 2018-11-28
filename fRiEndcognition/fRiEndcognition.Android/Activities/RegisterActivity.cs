@@ -42,7 +42,6 @@ namespace friendcognition.Droid
                 if (callback == DataController.RegistrationCallbacks.PASSED)
                 {
                     Intent i = new Intent(this, typeof(RegisterCamera));
-                    DataController.Instance().name = name.Text;
 
                     if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
                     {
@@ -71,6 +70,9 @@ namespace friendcognition.Droid
                             break;
                         case DataController.RegistrationCallbacks.INVALID_PASSWORD:
                             Toast.MakeText(ApplicationContext, Resource.String.INVALID_PASSWORD, ToastLength.Long).Show();
+                            break;
+                        case DataController.RegistrationCallbacks.USER_EXISTS:
+                            Toast.MakeText(ApplicationContext, Resource.String.INVALID_EMAIL, ToastLength.Long).Show();
                             break;
                         default:
                             Toast.MakeText(ApplicationContext, Resource.String.SOMETHING_WENT_WRONG, ToastLength.Long).Show();
