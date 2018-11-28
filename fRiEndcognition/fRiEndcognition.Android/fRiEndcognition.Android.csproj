@@ -65,6 +65,7 @@
     <Compile Include="Camera\ICameraStreaming.cs" />
     <Compile Include="Database\DataController.cs" />
     <Compile Include="HTTP\Sender.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />

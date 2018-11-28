@@ -22,6 +22,8 @@ namespace friendcognition.Droid
         public const string REGEX_ONLY_LETTERS = @"^[a-zA-Z]+$";
         public const string REGEX_EMAIL = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
 
+        public Person currentPerson;
+
         private static readonly Lazy<DataController> lazy = new Lazy<DataController>(() => new DataController());
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
@@ -50,6 +52,9 @@ namespace friendcognition.Droid
             if (byteArrayPicture != null)
             {
                 byteArrayCurrent = byteArrayPicture;
+                currentPerson.Picture = byteArrayCurrent;
+                Instance().UploadToDatabase();
+
                 return true;
             }
             else
@@ -88,7 +93,7 @@ namespace friendcognition.Droid
             //    return true;
             //}
 
-            return false;
+            return true;
         }
 
         public RegistrationCallbacks Register(string name, string surname, string email, string password, string repeatPassword)
@@ -118,6 +123,10 @@ namespace friendcognition.Droid
             }
 
             loginInfo.Add(email, password);
+
+            // If all the checks are passed, create a new Person object
+
+            currentPerson = new Person(name, surname, email, password);
 
             return RegistrationCallbacks.PASSED;
 
@@ -193,18 +202,14 @@ namespace friendcognition.Droid
             return true;
         }
 
-        public static void UploadDatabase()
+        public void UploadToDatabase()
         {
 
             var httpWebRequest = Sender.createRequestHandler("POST", "database");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write("{\"name\": \"" + DataController.Instance().name + 
-                    "\", \"surname\": \"" + DataController.Instance().surname + 
-                    "\", \"email\": \"" + DataController.Instance().email + 
-                    "\", \"password\": \"" + DataController.Instance().password +
-                    "\", \"picture\": \"" + DataController.Instance().byteArrayCurrent + "\"}");
+                streamWriter.Write(currentPerson.ToJSON());
             }
 
             var response = Sender.getResponse(httpWebRequest);

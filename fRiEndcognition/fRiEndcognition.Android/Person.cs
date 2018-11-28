@@ -43,5 +43,14 @@ namespace friendcognition.Droid
             Password = password;
             Picture = picture;
         }
+
+        public string ToJSON()
+        {
+            return "{\"name\": \"" + name +
+                    "\", \"surname\": \"" + surname +
+                    "\", \"email\": \"" + email +
+                    "\", \"password\": \"" + password +
+                    "\", \"picture\": \"" + picture + "\"}";
+        }
     }
 }
