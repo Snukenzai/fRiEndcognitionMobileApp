@@ -19,6 +19,7 @@ using Android.Support.V4.App;
 using Android;
 using Android.Content.PM;
 using friendcognition.Droid.Camera;
+using Plugin.Connectivity;
 
 namespace friendcognition.Droid
 {
@@ -69,19 +70,24 @@ namespace friendcognition.Droid
 
         private void TakePhoto(object sender, EventArgs e)
         {
-            try
+            if (CrossConnectivity.Current.IsConnected)
             {
-                cameraSource.TakePicture(null, this);
-                //cameraSource.Stop(); <--- just dont do it, dont stop it too early, he's to young to die and the whole program just goes nuts
-                takePhoto.Visibility = ViewStates.Gone;
-                changeCamera.Visibility = ViewStates.Gone;
-                declinePhoto.Visibility = ViewStates.Visible;
-                confirmPhoto.Visibility = ViewStates.Visible;
+                try
+                {
+                    cameraSource.TakePicture(null, this);
+                    //cameraSource.Stop(); <--- just dont do it, dont stop it too early, he's to young to die and the whole program just goes nuts
+                    takePhoto.Visibility = ViewStates.Gone;
+                    changeCamera.Visibility = ViewStates.Gone;
+                    declinePhoto.Visibility = ViewStates.Visible;
+                    confirmPhoto.Visibility = ViewStates.Visible;
+                }
+                catch(Exception ex)
+                {
+                    Toast.MakeText(ApplicationContext, "Error: " + ex.ToString(), ToastLength.Long).Show();
+                }
             }
-            catch(Exception ex)
-            {
-                Toast.MakeText(ApplicationContext, "Error: " + ex.ToString(), ToastLength.Long).Show();
-            }
+            else
+                Toast.MakeText(ApplicationContext, Resource.String.NO_INTERNET_CONNECTION, ToastLength.Long).Show();
         }
 
         private void ChangeCameraFacing(object sender, EventArgs e)
@@ -184,7 +190,7 @@ namespace friendcognition.Droid
 
         private void ConfirmPhoto(object sender, EventArgs e)
         {
-
+            
             if (DataController.Instance().SavePicture(byteArrayPicture))
             {
                 Intent i = new Intent(this, typeof(CameraActivity));
@@ -203,6 +209,7 @@ namespace friendcognition.Droid
                 DeclinePhoto(null, null);
                 Toast.MakeText(ApplicationContext, "Error: picture failed to be saved...", ToastLength.Long).Show();
             }
+            
         }
 
 

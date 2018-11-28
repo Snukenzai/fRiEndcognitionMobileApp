@@ -4241,6 +4241,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f09004f
 			public const int INVALID_SURNAME = 2131296335;
 			
+			// aapt resource value: 0x7f090054
+			public const int NO_INTERNET_CONNECTION = 2131296340;
+			
 			// aapt resource value: 0x7f090052
 			public const int SOMETHING_WENT_WRONG = 2131296338;
 			
