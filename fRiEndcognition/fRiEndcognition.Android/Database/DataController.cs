@@ -28,6 +28,8 @@ namespace friendcognition.Droid
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
 
+        public Dictionary<string, Person> personList = new Dictionary<string, Person>();
+
         private byte[] byteArrayCurrent;
 
         private bool touching = false;
@@ -123,9 +125,13 @@ namespace friendcognition.Droid
 
             loginInfo.Add(email, password);
 
+            
+
             // If all the checks are passed, create a new Person object
 
             currentPerson = new Person(name, surname, email, password);
+
+            personList.Add(email, currentPerson);
 
             return RegistrationCallbacks.PASSED;
 
