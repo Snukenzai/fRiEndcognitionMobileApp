@@ -4,6 +4,6 @@
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <ProjectView>ProjectFiles</ProjectView>
-    <SelectedDevice>LeMobile Le X820</SelectedDevice>
+    <SelectedDevice>Android_Accelerated_x86_Oreo</SelectedDevice>
   </PropertyGroup>
 </Project>

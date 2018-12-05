@@ -35,9 +35,6 @@ namespace friendcognition.Droid
 
         public void setId()
         {
-
-            //profileName.Text = DataController.Instance().name;
-
             profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
             profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(currentPerson.Picture));
         }

@@ -4226,6 +4226,9 @@ namespace friendcognition.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f090055
+			public const int CANNOT_REGISTER = 2131296341;
+			
 			// aapt resource value: 0x7f090053
 			public const int EMAIL_ALREADY_EXISTS = 2131296339;
 			
