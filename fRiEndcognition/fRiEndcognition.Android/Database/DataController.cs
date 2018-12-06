@@ -60,21 +60,7 @@ namespace friendcognition.Droid
             {
                 byteArrayCurrent = byteArrayPicture;
                 currentPerson.Picture = byteArrayCurrent;
-
-                string dbPath = Path.Combine(System.Environment.GetFolderPath
-                (System.Environment.SpecialFolder.Personal),
-                "database.db3");
-                var db = new SQLiteConnection(dbPath);
-                db.CreateTable<PersonStock>();
-                var newPerson = new PersonStock();
-                newPerson.Name = currentPerson.Name;
-                newPerson.Surname = currentPerson.Surname;
-                newPerson.Email = currentPerson.Email;
-                newPerson.Password = currentPerson.Password;
-                newPerson.Picture = currentPerson.Picture;
-
-                db.Insert(newPerson);
-
+                Instance().UploadToLocalDatabase();
                 return Instance().UploadToDatabase();
             }
             else
@@ -103,25 +89,12 @@ namespace friendcognition.Droid
 
         public bool Login(string email, string password)
         {
-            string dbPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-            "database.db3");
-            var db = new SQLiteConnection(dbPath);
-            try
+            if(CheckingLocalDatabase(email, password))
+                return true;
+            else
             {
-                var person = (from people in db.Table<PersonStock>()
-                              where people.Email.Equals(email)
-                              select people).First();
-
-                if (person.Email == email && person.Password == password)
-                {
-                    currentPerson = new Person(person.Name, person.Surname, person.Email, person.Password, person.Picture);
+                if (CheckingLogin(email, password))
                     return true;
-                }
-            }
-            catch(Exception)
-            {
-                return CheckingLogin(email, password);
             }
             return false;
         }
@@ -270,6 +243,48 @@ namespace friendcognition.Droid
                 return true;
             else
                 return false;
+        }
+
+        private void UploadToLocalDatabase()
+        {
+            string dbPath = Path.Combine(System.Environment.GetFolderPath
+            (System.Environment.SpecialFolder.Personal),
+            "database.db3");
+            var db = new SQLiteConnection(dbPath);
+            db.CreateTable<PersonStock>();
+            var newPerson = new PersonStock();
+            newPerson.Name = currentPerson.Name;
+            newPerson.Surname = currentPerson.Surname;
+            newPerson.Email = currentPerson.Email;
+            newPerson.Password = currentPerson.Password;
+            newPerson.Picture = currentPerson.Picture;
+
+            db.Insert(newPerson);
+        }
+
+        private bool CheckingLocalDatabase(string email, string password)
+        {
+            string dbPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+            "database.db3");
+            var db = new SQLiteConnection(dbPath);
+            try
+            {
+                var person = (from people in db.Table<PersonStock>()
+                              where people.Email.Equals(email)
+                              select people).First();
+
+                if (person.Password == password)
+                {
+                    currentPerson = new Person(person.Name, person.Surname, person.Email, person.Password, person.Picture);
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return false;
         }
     }
 }
