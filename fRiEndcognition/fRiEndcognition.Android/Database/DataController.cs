@@ -59,7 +59,7 @@ namespace friendcognition.Droid
             if (byteArrayPicture != null)
             {
                 byteArrayCurrent = byteArrayPicture;
-                currentPerson.Picture = byteArrayCurrent;
+                currentPerson.Picture = ByteArrayToBase64String(byteArrayCurrent);
                 Instance().UploadToLocalDatabase();
                 return Instance().UploadToDatabase();
             }
@@ -69,6 +69,15 @@ namespace friendcognition.Droid
             }
         }
 
+        public string ByteArrayToBase64String(byte[] byteArrayPicture)
+        {
+            return System.Convert.ToBase64String(byteArrayPicture);
+        }
+
+        public byte[] Base64StringToByteArray(String base64StringPicture)
+        {
+            return System.Convert.FromBase64String(base64StringPicture);
+        }
         
         //Converts Bitmap picture to Byte Array using 
         public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapData)
@@ -289,6 +298,7 @@ namespace friendcognition.Droid
 
         public void UpdateLocalDatabase(byte[] picture)
         {
+            string encodedPicture = ByteArrayToBase64String(picture);
             string dbPath = Path.Combine(System.Environment.GetFolderPath
             (System.Environment.SpecialFolder.Personal),
             "database.db3");
@@ -297,8 +307,8 @@ namespace friendcognition.Droid
                           where people.Email.Equals(currentPerson.Email)
                           select people).First();
 
-            person.Picture = picture;
-            currentPerson.Picture = picture;
+            person.Picture = encodedPicture;
+            currentPerson.Picture = encodedPicture;
             
             db.Update(person);
         }

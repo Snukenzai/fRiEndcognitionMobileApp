@@ -27,6 +27,6 @@ namespace friendcognition.Droid
         [Column("_password")]
         public string Password { get; set; }
         [Column("_picture")]
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
     }
 }
