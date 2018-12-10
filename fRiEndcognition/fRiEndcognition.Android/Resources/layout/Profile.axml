@@ -24,4 +24,11 @@
 		android:layout_gravity = "center"
 		android:id="@+id/ProfileName" />
 
+	<Button
+		android:text="Change profile picture"
+		android:layout_width="250.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/ChangeProfilePicture" 
+	    android:layout_gravity="center"/>
+
 </LinearLayout>

@@ -286,5 +286,21 @@ namespace friendcognition.Droid
             }
             return false;
         }
+
+        public void UpdateLocalDatabase(byte[] picture)
+        {
+            string dbPath = Path.Combine(System.Environment.GetFolderPath
+            (System.Environment.SpecialFolder.Personal),
+            "database.db3");
+            var db = new SQLiteConnection(dbPath);
+            var person = (from people in db.Table<PersonStock>()
+                          where people.Email.Equals(currentPerson.Email)
+                          select people).First();
+
+            person.Picture = picture;
+            currentPerson.Picture = picture;
+            
+            db.Update(person);
+        }
     }
 }
