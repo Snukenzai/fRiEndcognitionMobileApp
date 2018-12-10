@@ -8,4 +8,5 @@
   <string name="SOMETHING_WENT_WRONG">Whoops! Something went wrong...</string>
   <string name="EMAIL_ALREADY_EXISTS">Email already exists</string>
   <string name="NO_INTERNET_CONNECTION">Please check internet connection</string>
+  <string name="CANNOT_REGISTER">Error: picture failed to be saved or registration failed...</string>
 </resources>
