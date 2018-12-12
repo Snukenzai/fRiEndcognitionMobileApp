@@ -44,7 +44,7 @@ namespace friendcognition.Droid.Recognition
 
             string response = Sender.getResponse(httpWebRequest);
 
-            DataController.Instance().currentPerson = JsonConvert.DeserializeObject<Person>(response);
+            DataController.Instance().recognizedPerson = JsonConvert.DeserializeObject<Person>(response);
 
         }
     }

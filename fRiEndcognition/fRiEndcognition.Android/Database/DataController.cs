@@ -32,6 +32,10 @@ namespace friendcognition.Droid
 
         public Person currentPerson;
 
+        public Person recognizedPerson;
+
+        public bool isShowingRecognition = false;
+
         private static readonly Lazy<DataController> lazy = new Lazy<DataController>(() => new DataController());
 
         private Dictionary<string, string> loginInfo = new Dictionary<string, string>();
