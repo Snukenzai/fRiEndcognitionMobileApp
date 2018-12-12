@@ -220,7 +220,7 @@ namespace friendcognition.Droid
             else
             {
                 DeclinePhoto(null, null);
-                Toast.MakeText(ApplicationContext, "Error: picture failed to be saved...", ToastLength.Long).Show();
+                Toast.MakeText(ApplicationContext, Resource.String.CANNOT_REGISTER, ToastLength.Long).Show();
             }
             
         }
@@ -235,7 +235,6 @@ namespace friendcognition.Droid
             bm = ImageController.LoadBitmapFromView(imageview);
             bm = ImageController.ResizeBitmap(bm);
             byteArrayPicture = ImageController.BitmapToByteArray(bm);
-
         }
     }
 }

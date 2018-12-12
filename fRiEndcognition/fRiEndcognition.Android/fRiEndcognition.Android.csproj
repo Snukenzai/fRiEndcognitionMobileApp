@@ -52,6 +52,9 @@
     <PackageReference Include="CoreCompat.System.Drawing.v2">
       <Version>5.2.0-preview1-r131</Version>
     </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.2.0</Version>
     </PackageReference>
@@ -76,6 +79,7 @@
     <Compile Include="HTTP\Sender.cs" />
     <Compile Include="ImageController.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonStock.cs" />
     <Compile Include="Recognition\Detection\FaceDetection.cs" />
     <Compile Include="Recognition\Detection\FaceGraphic.cs" />
     <Compile Include="Camera\GraphicOverlay.cs" />
