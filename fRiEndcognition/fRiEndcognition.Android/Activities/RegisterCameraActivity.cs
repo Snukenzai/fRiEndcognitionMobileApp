@@ -20,6 +20,10 @@ using Android;
 using Android.Content.PM;
 using friendcognition.Droid.Camera;
 using Plugin.Connectivity;
+using System.IO;
+using System.Drawing;
+using System.Threading.Tasks;
+using Android.Graphics.Drawables;
 
 namespace friendcognition.Droid
 {
@@ -34,6 +38,9 @@ namespace friendcognition.Droid
         private ImageButton takePhoto;
         private ImageButton declinePhoto;
         private ImageButton confirmPhoto;
+        private ImageView imageview;
+        private RelativeLayout layout;
+        private Person person;
 
         private byte[] byteArrayPicture;
 
@@ -45,10 +52,13 @@ namespace friendcognition.Droid
             SetContentView(Resource.Layout.RegisterCamera);
 
             //ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
+            imageview = FindViewById<ImageView>(Resource.Id.ImageView);
+            layout = FindViewById<RelativeLayout>(Resource.Id.layout);
             changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
             takePhoto = FindViewById<ImageButton>(Resource.Id.TakePhoto);
             declinePhoto = FindViewById<ImageButton>(Resource.Id.DeclinePhoto);
             confirmPhoto = FindViewById<ImageButton>(Resource.Id.ConfirmPhoto);
+            person = DataController.Instance().currentPerson;
             //menu.Click += OpenMenu; <--- for now, let's stay without menu for Register Camera
             changeCamera.Click += ChangeCameraFacing;
             takePhoto.Click += TakePhoto;
@@ -67,6 +77,7 @@ namespace friendcognition.Droid
             CreateCameraSource(CameraFacing.Back);
 
         }
+
 
         private void TakePhoto(object sender, EventArgs e)
         {
@@ -193,6 +204,8 @@ namespace friendcognition.Droid
             
             if (DataController.Instance().SavePicture(byteArrayPicture))
             {
+                Recognition.RecognitionController.TrainAlbum(byteArrayPicture, person.Email);
+
                 Intent i = new Intent(this, typeof(CameraActivity));
 
                 if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.Camera) == Permission.Denied)
@@ -215,10 +228,13 @@ namespace friendcognition.Droid
 
         public void OnPictureTaken(byte[] data)
         {
-            byteArrayPicture = data;
             cameraSource.Stop();
 
-            //Recognition.RecognitionController.TrainAlbum(byteArrayPicture);
+            Android.Graphics.Bitmap bm = ImageController.ByteArrayToBitmap(data);
+            imageview.SetImageBitmap(bm);
+            bm = ImageController.LoadBitmapFromView(imageview);
+            bm = ImageController.ResizeBitmap(bm);
+            byteArrayPicture = ImageController.BitmapToByteArray(bm);
         }
     }
 }

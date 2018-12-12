@@ -27,6 +27,9 @@ namespace friendcognition.Droid
         private CameraSource cameraSource = null;
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
+        private ImageView imageview;
+        private RelativeLayout layout;
+        private Person person;
 
         private byte[] byteArrayPicture;
         private static readonly int gms_code = 9001;
@@ -38,6 +41,13 @@ namespace friendcognition.Droid
 
             ImageButton menu = FindViewById<ImageButton>(Resource.Id.Menu);
             ImageButton changeCamera = FindViewById<ImageButton>(Resource.Id.ChangeCamera);
+            imageview = FindViewById<ImageView>(Resource.Id.ImageViewCamera);
+            layout = FindViewById<RelativeLayout>(Resource.Id.layoutcamera);
+            preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
+            graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
+            person = DataController.Instance().currentPerson;
+
+            imageview.Visibility = ViewStates.Invisible;
 
             menu.Click += delegate(object sender, EventArgs e) 
             {
@@ -62,11 +72,9 @@ namespace friendcognition.Droid
                 }
             };
 
-            preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
-            graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
-
             CreateCameraSource(CameraFacing.Back);
 
+            DataController.Instance().openProfile = false;
             graphicOverlay.SetOnTouchListener(this);
         }
         protected override void OnResume()
@@ -97,12 +105,15 @@ namespace friendcognition.Droid
 
             if (e.Action == MotionEventActions.Down)
             {
-                cameraSource.TakePicture(null, this);
                 DataController.Instance().TouchEventDown(x, y);
             }
             else if (e.Action == MotionEventActions.Up)
             {
                 DataController.Instance().TouchEventUp();
+                if (DataController.Instance().openProfile == true)
+                {
+                    cameraSource.TakePicture(null, this);
+                }
             }
 
             return true;
@@ -161,9 +172,18 @@ namespace friendcognition.Droid
 
         public void OnPictureTaken(byte[] data)
         {
-            byteArrayPicture = data;
+            DataController.Instance().openProfile = false;
+
+            Android.Graphics.Bitmap bm = ImageController.ByteArrayToBitmap(data);
+            imageview.SetImageBitmap(bm);
+            bm = ImageController.LoadBitmapFromView(imageview);
+            bm = ImageController.ResizeBitmap(bm);
+            byteArrayPicture = ImageController.BitmapToByteArray(bm);
+
             string result = Recognition.RecognitionController.RecognisePic(byteArrayPicture);
-            DataController.Instance().name = result;
+            person.Name = result;
+            Intent i = new Intent(this, typeof(ProfileActivity));
+            StartActivity(i);
         }
     }
 }

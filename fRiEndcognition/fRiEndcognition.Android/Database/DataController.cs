@@ -42,10 +42,7 @@ namespace friendcognition.Droid
 
         private bool touching = false;
         private float x, y;
-        public int id;
-
-        public string name { get; set; }
-
+        public bool openProfile { get; set; }
 
         DataController()
         {
@@ -226,7 +223,6 @@ namespace friendcognition.Droid
 
         public bool UploadToDatabase()
         {
-
             var httpWebRequest = Sender.createRequestHandler("POST", "register");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
