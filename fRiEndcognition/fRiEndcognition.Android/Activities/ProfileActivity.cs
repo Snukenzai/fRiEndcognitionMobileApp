@@ -57,6 +57,7 @@ namespace friendcognition.Droid
                 currentPerson = DataController.Instance().recognizedPerson;
                 DataController.Instance().isShowingRecognition = false;
                 changePicture.Visibility = ViewStates.Gone;
+                deleteAccount.Visibility = ViewStates.Gone;
             }
             AddPerson();
         }
