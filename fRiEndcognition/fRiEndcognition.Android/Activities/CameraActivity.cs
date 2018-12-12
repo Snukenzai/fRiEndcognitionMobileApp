@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading;
+using System.Threading.Tasks;
+using System.Timers;
 using Android.App;
 using Android.Content;
 using Android.Gms.Common;
@@ -29,8 +31,14 @@ namespace friendcognition.Droid
         private CameraSourcePreview preview;
         private GraphicOverlay graphicOverlay;
         private ImageView imageview;
+        private TextView loadingView;
         private RelativeLayout layout;
         private Person person;
+
+        private string[] loadingStates = { "Loading", " Loading.", "  Loading..", "   Loading..." };
+        private int currentIndex = 0;
+
+        private CancellationTokenSource cancellationTokenForLoading;
 
         private byte[] byteArrayPicture;
         private static readonly int gms_code = 9001;
@@ -46,7 +54,10 @@ namespace friendcognition.Droid
             layout = FindViewById<RelativeLayout>(Resource.Id.layoutcamera);
             preview = FindViewById<CameraSourcePreview>(Resource.Id.preview);
             graphicOverlay = FindViewById<GraphicOverlay>(Resource.Id.faceOverlay);
+            loadingView = FindViewById<TextView>(Resource.Id.Loading);
             person = DataController.Instance().currentPerson;
+
+            loadingView.Visibility = ViewStates.Gone;
 
             imageview.Visibility = ViewStates.Invisible;
 
@@ -81,6 +92,7 @@ namespace friendcognition.Droid
         protected override void OnResume()
         {
             base.OnResume();
+            loadingView.Visibility = ViewStates.Gone;
             StartCameraSource();
         }
 
@@ -113,11 +125,25 @@ namespace friendcognition.Droid
                 DataController.Instance().TouchEventUp();
                 if (DataController.Instance().openProfile == true)
                 {
+
+                    loadingView.Visibility = ViewStates.Visible;
+
                     cameraSource.TakePicture(null, this);
+
                 }
             }
 
             return true;
+        }
+
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            if (currentIndex >= loadingStates.Length)
+            {
+                currentIndex = 0;
+            }
+            loadingView.Text = loadingStates[currentIndex];
+            currentIndex++;
         }
 
         public void CreateCameraSource(CameraFacing cameraFacing)
@@ -171,6 +197,7 @@ namespace friendcognition.Droid
             return new friendcognition.Droid.FaceDetection(graphicOverlay, cameraSource);
         }
 
+
         public void OnPictureTaken(byte[] data)
         {
             DataController.Instance().openProfile = false;
@@ -180,6 +207,7 @@ namespace friendcognition.Droid
             bm = ImageController.LoadBitmapFromView(imageview);
             bm = ImageController.ResizeBitmap(bm);
             byteArrayPicture = ImageController.BitmapToByteArray(bm);
+
 
             Recognition.RecognitionController.RecognisePic(byteArrayPicture);
 

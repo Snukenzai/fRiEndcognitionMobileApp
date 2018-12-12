@@ -28,6 +28,16 @@
         android:layout_marginTop="3dp"
 		android:layout_alignParentLeft="true"
         android:layout_marginLeft="6dp" />
+		<TextView
+		android:text="Loading"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_marginBottom="50.0dp"
+		android:textSize="30dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:layout_alignParentBottom="true"
+		android:id="@+id/Loading" />
 	<ImageButton
 		android:id="@+id/ChangeCamera"
 		android:layout_width="50dip"
