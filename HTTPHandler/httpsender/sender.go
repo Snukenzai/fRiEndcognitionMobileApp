@@ -1,7 +1,6 @@
 package httpsender
 
 import (
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -16,7 +15,6 @@ func Send(config Config, request string, body io.Reader, url string) (*http.Resp
 	}
 	req.Header.Add("X-Mashape-Key", config.MashapeKey)
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Add("Accept", "application/json")
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -27,7 +25,7 @@ func Send(config Config, request string, body io.Reader, url string) (*http.Resp
 }
 
 // Rebuild rebuilds created albums after training
-func Rebuild(config Config) {
+func Rebuild(config Config) []byte {
 	req, err := http.NewRequest("GET", config.RebuildURL, nil)
 	if err != nil {
 		log.Println(err)
@@ -39,7 +37,7 @@ func Rebuild(config Config) {
 		log.Println(err)
 	}
 	body, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(body))
 	defer resp.Body.Close()
 
+	return body
 }
