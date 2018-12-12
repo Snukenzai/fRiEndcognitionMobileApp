@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -36,10 +37,8 @@ namespace friendcognition.Droid
         public void setId()
         {
 
-            //profileName.Text = DataController.Instance().name;
-
-            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
-            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(currentPerson.Picture));
+            profileName.Text = currentPerson.Name;
+            //profileImage.SetImageBitmap(ImageController.ByteArrayToBitmap(currentPerson.Picture));
         }
     }
 }

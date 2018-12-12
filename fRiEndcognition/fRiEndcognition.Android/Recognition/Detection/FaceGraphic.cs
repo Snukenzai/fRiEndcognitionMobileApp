@@ -65,9 +65,7 @@ namespace friendcognition.Droid
 
                 if (x > left && x < right && y > top && y < bottom)
                 {
-                    DataController.Instance().id = mFaceId;
-                    Intent i = new Intent(Application.Context, typeof(ProfileActivity));
-                    Application.Context.StartActivity(i);
+                    DataController.Instance().openProfile = true;
                 }
 
                 touching = false;
