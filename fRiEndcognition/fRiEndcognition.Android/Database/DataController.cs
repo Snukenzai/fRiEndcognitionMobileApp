@@ -40,10 +40,7 @@ namespace friendcognition.Droid
 
         private bool touching = false;
         private float x, y;
-        public int id;
-
-        public string name { get; set; }
-
+        public bool openProfile { get; set; }
 
         DataController()
         {
@@ -67,24 +64,6 @@ namespace friendcognition.Droid
             {
                 return false;
             }
-        }
-
-        
-        //Converts Bitmap picture to Byte Array using 
-        public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapData)
-        {
-            byte[] byteArrayData;
-            using (var stream = new MemoryStream())
-            {
-                bitmapData.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
-                byteArrayData = stream.ToArray();
-            }
-            return byteArrayData;
-        }
-
-        public Android.Graphics.Bitmap ByteArrayToBitmap(byte[] byteArrayData)
-        {
-            return Android.Graphics.BitmapFactory.DecodeByteArray(byteArrayData, 0, byteArrayData.Length);
         }
 
         public bool Login(string email, string password)
@@ -212,7 +191,6 @@ namespace friendcognition.Droid
 
         public bool UploadToDatabase()
         {
-
             var httpWebRequest = Sender.createRequestHandler("POST", "register");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))

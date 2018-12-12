@@ -11,20 +11,22 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using friendcognition.Droid.HTTP;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace friendcognition.Droid.Recognition
 {
     class RecognitionController
     {
-        public static void TrainAlbum(byte[] pic)
+        public static void TrainAlbum(byte[] pic, string id)
         {
 
             var httpWebRequest = Sender.createRequestHandler("POST", "train");
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string picnebute = "https://www.golf.com/wp-content/uploads/2018/09/tiger-woods-tour-championship.jpg";
-                streamWriter.Write("{\"urls\": \""+ picnebute + "\", \"entryid\": \""+ DataController.Instance().name + "\"}");
+                
+                streamWriter.Write("entryid=" + id +
+                    "&files=" + Convert.ToBase64String(pic));
             }
 
             var response = Sender.getResponse(httpWebRequest);
@@ -36,8 +38,7 @@ namespace friendcognition.Droid.Recognition
             var httpWebRequest = Sender.createRequestHandler("POST", "rec");
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string picnebute = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Tiger_Woods_2018.jpg/220px-Tiger_Woods_2018.jpg";
-                streamWriter.Write("{\"urls\": \"" + picnebute + "\"}");
+                streamWriter.Write("files=" + Convert.ToBase64String(pic));
             }
 
             string response = Sender.getResponse(httpWebRequest);

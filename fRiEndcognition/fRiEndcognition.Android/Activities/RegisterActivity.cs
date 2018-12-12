@@ -23,6 +23,7 @@ namespace friendcognition.Droid
         private EditText email;
         private EditText password;
         private EditText repeatPassword;
+        private Person person;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

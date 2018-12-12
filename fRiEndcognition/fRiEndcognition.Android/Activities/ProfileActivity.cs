@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -52,12 +53,6 @@ namespace friendcognition.Droid
                 byte[] picture = convertImageToByte(uri);
                 DataController.Instance().UpdateLocalDatabase(picture);
             }
-        }
-
-        public void setId()
-        {
-            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
-            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(currentPerson.Picture));
         }
 
         private byte[] convertImageToByte(Android.Net.Uri uri)
