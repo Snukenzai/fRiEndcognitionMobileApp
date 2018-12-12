@@ -37,6 +37,17 @@ namespace friendcognition.Droid
                 StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
             };
 
+            Button deleteAccount = FindViewById<Button>(Resource.Id.DeleteAccount);
+            deleteAccount.Click += delegate (object sender, EventArgs e)
+            {
+                bool answer = Delete();
+                if (answer)
+                {
+                    Intent i = new Intent(this, typeof(MainActivity));
+                    StartActivity(i);
+                }
+            };
+
             profileName = FindViewById<TextView>(Resource.Id.ProfileName);
             profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
             currentPerson = DataController.Instance().currentPerson;
@@ -55,6 +66,13 @@ namespace friendcognition.Droid
             }
         }
 
+        private bool Delete()
+        {
+           bool local = DataController.Instance().DeleteFromLocalDatabase();
+           bool notlocal = DataController.Instance().DeleteFromDatabase();
+
+           return local && notlocal;
+        }
         private byte[] convertImageToByte(Android.Net.Uri uri)
         {
             Stream stream = ContentResolver.OpenInputStream(uri);
