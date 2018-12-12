@@ -276,6 +276,53 @@ namespace friendcognition.Droid
             db.Insert(newPerson);
         }
 
+        public bool DeleteFromLocalDatabase()
+        {
+            string dbPath = Path.Combine(System.Environment.GetFolderPath
+            (System.Environment.SpecialFolder.Personal),
+            "database.db3");
+            var db = new SQLiteConnection(dbPath);
+            try
+            {
+                string email = currentPerson.Email;
+                var person = (from people in db.Table<PersonStock>()
+                              where people.Email.Equals(email)
+                              select people).First();
+
+                db.Delete(person);
+                return true;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+            
+        }
+
+        public bool DeleteFromDatabase()
+        {
+            var httpWebRequest = Sender.createRequestHandler("POST", "delete");
+
+            string email = currentPerson.Email;
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\"}");
+            }
+
+            //this line freezes the app if there's no response
+            var response = Sender.getResponse(httpWebRequest);
+
+            if (response == "200")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private bool CheckingLocalDatabase(string email, string password)
         {
             string dbPath = Path.Combine(

@@ -3195,6 +3195,9 @@ namespace friendcognition.Droid
 			// aapt resource value: 0x7f0c00e9
 			public const int DeclinePhoto = 2131493097;
 			
+			// aapt resource value: 0x7f0c00df
+			public const int DeleteAccount = 2131493087;
+			
 			// aapt resource value: 0x7f0c003c
 			public const int FUNCTION = 2131492924;
 			
@@ -3233,13 +3236,13 @@ namespace friendcognition.Droid
 			
 			// aapt resource value: 0x7f0c00dd
 			public const int ProfileImage = 2131493085;
-			
+
 			// aapt resource value: 0x7f0c00de
 			public const int ProfileName = 2131493086;
 			
 			// aapt resource value: 0x7f0c00ac
 			public const int RegisterB = 2131493036;
-			
+
 			// aapt resource value: 0x7f0c00e2
 			public const int RegisterEmail = 2131493090;
 			

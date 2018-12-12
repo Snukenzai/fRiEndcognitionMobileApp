@@ -31,4 +31,11 @@
 		android:id="@+id/ChangeProfilePicture" 
 	    android:layout_gravity="center"/>
 
+	<Button
+		android:text="Delete account"
+		android:layout_width="250.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/DeleteAccount" 
+	    android:layout_gravity="center"/>
+
 </LinearLayout>
