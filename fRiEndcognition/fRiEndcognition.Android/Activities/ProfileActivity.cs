@@ -52,7 +52,14 @@ namespace friendcognition.Droid
                 profileImage.SetImageURI(uri);
                 byte[] picture = convertImageToByte(uri);
                 DataController.Instance().UpdateLocalDatabase(picture);
+                DataController.Instance().UpdateDatabase(picture);
             }
+        }
+
+        public void setId()
+        {
+            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
+            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(DataController.Instance().Base64StringToByteArray(currentPerson.Picture)));
         }
 
         private byte[] convertImageToByte(Android.Net.Uri uri)

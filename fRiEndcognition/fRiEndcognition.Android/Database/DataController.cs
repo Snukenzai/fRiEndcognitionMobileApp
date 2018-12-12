@@ -17,6 +17,8 @@ using friendcognition.Droid.HTTP;
 using Plugin.Connectivity;
 using SQLite;
 using Environment = System.Environment;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace friendcognition.Droid
 {
@@ -56,7 +58,7 @@ namespace friendcognition.Droid
             if (byteArrayPicture != null)
             {
                 byteArrayCurrent = byteArrayPicture;
-                currentPerson.Picture = byteArrayCurrent;
+                currentPerson.Picture = ByteArrayToBase64String(byteArrayCurrent);
                 Instance().UploadToLocalDatabase();
                 return Instance().UploadToDatabase();
             }
@@ -66,6 +68,33 @@ namespace friendcognition.Droid
             }
         }
 
+        public string ByteArrayToBase64String(byte[] byteArrayPicture)
+        {
+            return System.Convert.ToBase64String(byteArrayPicture);
+        }
+
+        public byte[] Base64StringToByteArray(String base64StringPicture)
+        {
+            return System.Convert.FromBase64String(base64StringPicture);
+        }
+        
+        //Converts Bitmap picture to Byte Array using 
+        public byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapData)
+        {
+            byte[] byteArrayData;
+            using (var stream = new MemoryStream())
+            {
+                bitmapData.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
+                byteArrayData = stream.ToArray();
+            }
+            return byteArrayData;
+        }
+
+        public Android.Graphics.Bitmap ByteArrayToBitmap(byte[] byteArrayData)
+        {
+            return Android.Graphics.BitmapFactory.DecodeByteArray(byteArrayData, 0, byteArrayData.Length);
+        }
+
         public bool Login(string email, string password)
         {
             if(CheckingLocalDatabase(email, password))
@@ -73,7 +102,10 @@ namespace friendcognition.Droid
             else
             {
                 if (CheckingLogin(email, password))
-                    return true;
+                {
+                    if(GetingLoginPerson(email))
+                        return true;
+                }
             }
             return false;
         }
@@ -106,11 +138,11 @@ namespace friendcognition.Droid
 
             loginInfo.Add(email, password);
 
-            
+
 
             // If all the checks are passed, create a new Person object
 
-            currentPerson = new Person(name, surname, email, password);
+            currentPerson = new Person(email, name, surname, password, "NULL");
 
             personList.Add(email, currentPerson);
 
@@ -254,7 +286,7 @@ namespace friendcognition.Droid
 
                 if (person.Password == password)
                 {
-                    currentPerson = new Person(person.Name, person.Surname, person.Email, person.Password, person.Picture);
+                    currentPerson = new Person(person.Email, person.Name, person.Surname, person.Password, person.Picture);
                     return true;
                 }
             }
@@ -267,6 +299,7 @@ namespace friendcognition.Droid
 
         public void UpdateLocalDatabase(byte[] picture)
         {
+            string encodedPicture = ByteArrayToBase64String(picture);
             string dbPath = Path.Combine(System.Environment.GetFolderPath
             (System.Environment.SpecialFolder.Personal),
             "database.db3");
@@ -275,10 +308,43 @@ namespace friendcognition.Droid
                           where people.Email.Equals(currentPerson.Email)
                           select people).First();
 
-            person.Picture = picture;
-            currentPerson.Picture = picture;
+            person.Picture = encodedPicture;
+            currentPerson.Picture = encodedPicture;
             
             db.Update(person);
+        }
+
+        private bool GetingLoginPerson(string email)
+        {
+            var httpWebRequest = Sender.createRequestHandler("POST", "user");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\"}");
+            }
+
+            //this line freezes the app if there's no response
+            var response = Sender.getResponse(httpWebRequest);
+            //Console.WriteLine(response);
+            Person person = JsonConvert.DeserializeObject<Person>(response);
+            currentPerson = person;
+            return true;
+        }
+
+        public void UpdateDatabase(byte[] picture)
+        {
+            string encodedPicture = ByteArrayToBase64String(picture);
+            var httpWebRequest = Sender.createRequestHandler("POST", "update");
+
+            string email = currentPerson.Email;
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\", \"picture\": \"" + encodedPicture + "\"}");
+            }
+
+            //this line freezes the app if there's no response
+            var response = Sender.getResponse(httpWebRequest);
         }
     }
 }
