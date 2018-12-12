@@ -51,6 +51,7 @@ namespace friendcognition.Droid
                 profileImage.SetImageURI(uri);
                 byte[] picture = convertImageToByte(uri);
                 DataController.Instance().UpdateLocalDatabase(picture);
+                DataController.Instance().UpdateDatabase(picture);
             }
         }
 

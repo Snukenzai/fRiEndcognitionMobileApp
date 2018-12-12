@@ -27,15 +27,7 @@ namespace friendcognition.Droid
         public string Password { get => password; set => password = value; }
         public string Picture { get => picture; set => picture = value; }
 
-        public Person(string name, string surname, string email, string password)
-        {
-            Name = name;
-            Surname = surname;
-            Email = email;
-            Password = password;
-        }
-
-        public Person(string name, string surname, string email, string password, string picture)
+        public Person(string email, string name, string surname, string password, string picture)
         {
             Name = name;
             Surname = surname;

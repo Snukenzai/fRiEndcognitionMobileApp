@@ -17,6 +17,8 @@ using friendcognition.Droid.HTTP;
 using Plugin.Connectivity;
 using SQLite;
 using Environment = System.Environment;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace friendcognition.Droid
 {
@@ -103,7 +105,10 @@ namespace friendcognition.Droid
             else
             {
                 if (CheckingLogin(email, password))
-                    return true;
+                {
+                    if(GetingLoginPerson(email))
+                        return true;
+                }
             }
             return false;
         }
@@ -136,11 +141,11 @@ namespace friendcognition.Droid
 
             loginInfo.Add(email, password);
 
-            
+
 
             // If all the checks are passed, create a new Person object
 
-            currentPerson = new Person(name, surname, email, password);
+            currentPerson = new Person(email, name, surname, password, "NULL");
 
             personList.Add(email, currentPerson);
 
@@ -285,7 +290,7 @@ namespace friendcognition.Droid
 
                 if (person.Password == password)
                 {
-                    currentPerson = new Person(person.Name, person.Surname, person.Email, person.Password, person.Picture);
+                    currentPerson = new Person(person.Email, person.Name, person.Surname, person.Password, person.Picture);
                     return true;
                 }
             }
@@ -311,6 +316,39 @@ namespace friendcognition.Droid
             currentPerson.Picture = encodedPicture;
             
             db.Update(person);
+        }
+
+        private bool GetingLoginPerson(string email)
+        {
+            var httpWebRequest = Sender.createRequestHandler("POST", "user");
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\"}");
+            }
+
+            //this line freezes the app if there's no response
+            var response = Sender.getResponse(httpWebRequest);
+            //Console.WriteLine(response);
+            Person person = JsonConvert.DeserializeObject<Person>(response);
+            currentPerson = person;
+            return true;
+        }
+
+        public void UpdateDatabase(byte[] picture)
+        {
+            string encodedPicture = ByteArrayToBase64String(picture);
+            var httpWebRequest = Sender.createRequestHandler("POST", "update");
+
+            string email = currentPerson.Email;
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write("{\"email\": \"" + email + "\", \"picture\": \"" + encodedPicture + "\"}");
+            }
+
+            //this line freezes the app if there's no response
+            var response = Sender.getResponse(httpWebRequest);
         }
     }
 }
