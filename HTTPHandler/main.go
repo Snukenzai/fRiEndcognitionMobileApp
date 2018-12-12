@@ -5,16 +5,29 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/EdasL/HTTPHandler/database"
 	"github.com/EdasL/HTTPHandler/httpsender"
 )
 
 func main() {
-	http.HandleFunc("/train", httpsender.TrainHandler)
-	http.HandleFunc("/rec", httpsender.RecHandler)
-
-	url := flag.String("url", "0.0.0.0:8080", "an export url path")
+	url := flag.String("url", "0.0.0.0:80", "an export url path")
+	configpath := flag.String("path", "./config.yaml", "config file path")
 	flag.Parse()
-	if err := http.ListenAndServe(*url, nil); err != nil {
+
+	Client := database.NewClient()
+	Client.Path = "./mordos.db"
+	err := Client.Open()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer Client.Close()
+
+	dataCtr := Client.DataController()
+
+	handler := httpsender.NewHandler(*configpath)
+	handler.DB = *dataCtr
+
+	if err := http.ListenAndServe(*url, handler.Router); err != nil {
 		log.Fatal(err)
 	}
 }
