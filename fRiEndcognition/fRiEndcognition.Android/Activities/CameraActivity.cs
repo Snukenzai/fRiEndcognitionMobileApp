@@ -15,6 +15,7 @@ using Android.Views;
 using Android.Widget;
 using friendcognition.Droid.Camera;
 using Java.Lang;
+using Newtonsoft.Json;
 using static Android.Gms.Vision.MultiProcessor;
 
 namespace friendcognition.Droid
@@ -180,8 +181,8 @@ namespace friendcognition.Droid
             bm = ImageController.ResizeBitmap(bm);
             byteArrayPicture = ImageController.BitmapToByteArray(bm);
 
-            string result = Recognition.RecognitionController.RecognisePic(byteArrayPicture);
-            person.Name = result;
+            Recognition.RecognitionController.RecognisePic(byteArrayPicture);
+
             Intent i = new Intent(this, typeof(ProfileActivity));
             StartActivity(i);
         }

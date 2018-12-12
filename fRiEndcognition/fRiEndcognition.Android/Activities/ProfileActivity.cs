@@ -20,7 +20,6 @@ namespace friendcognition.Droid
 
         private TextView profileName;
         private ImageView profileImage;
-        private int id, percentage;
         private Person currentPerson;
         public static readonly int PickImageId = 1000;
 
@@ -41,7 +40,7 @@ namespace friendcognition.Droid
             profileName = FindViewById<TextView>(Resource.Id.ProfileName);
             profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
             currentPerson = DataController.Instance().currentPerson;
-            setId();
+            AddPerson();
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -54,12 +53,6 @@ namespace friendcognition.Droid
                 DataController.Instance().UpdateLocalDatabase(picture);
                 DataController.Instance().UpdateDatabase(picture);
             }
-        }
-
-        public void setId()
-        {
-            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
-            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(DataController.Instance().Base64StringToByteArray(currentPerson.Picture)));
         }
 
         private byte[] convertImageToByte(Android.Net.Uri uri)
@@ -77,5 +70,12 @@ namespace friendcognition.Droid
                 return ms.ToArray();
             }
         }
+
+        public void AddPerson()
+        {
+            profileName.Text = currentPerson.Name + " " + currentPerson.Surname;
+            profileImage.SetImageBitmap(DataController.Instance().ByteArrayToBitmap(DataController.Instance().Base64StringToByteArray(currentPerson.Picture)));
+        }
+
     }
 }

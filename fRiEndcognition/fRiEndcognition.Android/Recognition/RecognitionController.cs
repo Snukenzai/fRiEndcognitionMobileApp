@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using friendcognition.Droid.HTTP;
+using Newtonsoft.Json;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace friendcognition.Droid.Recognition
@@ -33,7 +34,7 @@ namespace friendcognition.Droid.Recognition
 
         }
 
-        public static string RecognisePic(byte[] pic)
+        public static void RecognisePic(byte[] pic)
         {
             var httpWebRequest = Sender.createRequestHandler("POST", "rec");
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
@@ -43,8 +44,8 @@ namespace friendcognition.Droid.Recognition
 
             string response = Sender.getResponse(httpWebRequest);
 
-            return response;
+            DataController.Instance().currentPerson = JsonConvert.DeserializeObject<Person>(response);
 
         }
-}
+    }
 }
