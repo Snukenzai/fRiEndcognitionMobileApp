@@ -18,7 +18,7 @@ namespace friendcognition.Droid
 {
     class ImageController
     {
-        //Converts Bitmap picture to Byte Array using 
+
         public static byte[] BitmapToByteArray(Android.Graphics.Bitmap bitmapData)
         {
             byte[] byteArrayData;
