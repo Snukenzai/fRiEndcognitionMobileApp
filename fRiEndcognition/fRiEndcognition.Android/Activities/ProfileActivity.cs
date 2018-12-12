@@ -40,6 +40,13 @@ namespace friendcognition.Droid
             profileName = FindViewById<TextView>(Resource.Id.ProfileName);
             profileImage = FindViewById<ImageView>(Resource.Id.ProfileImage);
             currentPerson = DataController.Instance().currentPerson;
+
+            if (DataController.Instance().isShowingRecognition)
+            {
+                currentPerson = DataController.Instance().recognizedPerson;
+                DataController.Instance().isShowingRecognition = false;
+                changePicture.Visibility = ViewStates.Gone;
+            }
             AddPerson();
         }
 

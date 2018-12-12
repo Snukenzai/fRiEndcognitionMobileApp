@@ -183,6 +183,8 @@ namespace friendcognition.Droid
 
             Recognition.RecognitionController.RecognisePic(byteArrayPicture);
 
+            DataController.Instance().isShowingRecognition = true;
+
             Intent i = new Intent(this, typeof(ProfileActivity));
             StartActivity(i);
         }
